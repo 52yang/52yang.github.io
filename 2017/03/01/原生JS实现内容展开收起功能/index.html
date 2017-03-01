@@ -1,0 +1,657 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/love.jpg?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="1.实现原理很简单，通过点击 a 标签设置 div 的 display 属性隐藏或者显示，主要是对 dom 操作的掌握。2.需要用到的 dom 操作：&amp;emsp;&amp;emsp; parentNode 获取父级元素&amp;emsp;&amp;emsp; nextSibling 获取下一个紧跟的节点&amp;emsp;&amp;emsp; previousSibling 获取上一个紧跟的节点3.注意事项：要考虑到当点击展开全文的时候">
+<meta property="og:type" content="article">
+<meta property="og:title" content="原生JS实现内容展开收起功能">
+<meta property="og:url" content="http://ouuo.bid/2017/03/01/原生JS实现内容展开收起功能/index.html">
+<meta property="og:site_name" content="Yang">
+<meta property="og:description" content="1.实现原理很简单，通过点击 a 标签设置 div 的 display 属性隐藏或者显示，主要是对 dom 操作的掌握。2.需要用到的 dom 操作：&amp;emsp;&amp;emsp; parentNode 获取父级元素&amp;emsp;&amp;emsp; nextSibling 获取下一个紧跟的节点&amp;emsp;&amp;emsp; previousSibling 获取上一个紧跟的节点3.注意事项：要考虑到当点击展开全文的时候">
+<meta property="og:updated_time" content="2017-03-01T03:51:53.208Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="原生JS实现内容展开收起功能">
+<meta name="twitter:description" content="1.实现原理很简单，通过点击 a 标签设置 div 的 display 属性隐藏或者显示，主要是对 dom 操作的掌握。2.需要用到的 dom 操作：&amp;emsp;&amp;emsp; parentNode 获取父级元素&amp;emsp;&amp;emsp; nextSibling 获取下一个紧跟的节点&amp;emsp;&amp;emsp; previousSibling 获取上一个紧跟的节点3.注意事项：要考虑到当点击展开全文的时候">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://ouuo.bid/2017/03/01/原生JS实现内容展开收起功能/"/>
+
+
+
+
+
+  <title> 原生JS实现内容展开收起功能 | Yang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://ouuo.bid/2017/03/01/原生JS实现内容展开收起功能/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Yang">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/love.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Yang">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Yang" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                原生JS实现内容展开收起功能
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-01T11:34:56+08:00">
+                2017-03-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>1.实现原理很简单，通过点击 <code>a</code> 标签设置 <code>div</code> 的 <code>display</code> 属性隐藏或者显示，主要是对 <code>dom</code> 操作的掌握。<br>2.需要用到的 <code>dom</code> 操作：<br>&emsp;&emsp; <code>parentNode</code> 获取父级元素<br>&emsp;&emsp; <code>nextSibling</code> 获取下一个紧跟的节点<br>&emsp;&emsp; <code>previousSibling</code> 获取上一个紧跟的节点<br>3.注意事项：<br>要考虑到当点击展开全文的时候，其他已经展开的全文要收起来。<br>当用 <code>nextSibling</code> 获取下一个节点时候，不同浏览器的判断是不一样的<br>有的是获取元素，有的获取换行符或者空格，所以这里就要用到nodeType来判断一下数据类型 <code>nodeType</code> 只返回数字1、2、3<br>只有返回1的时候获取的才是元素节点 （我特么做的时候没考虑到这个问题，还以为哪出毛病了搞了好久）<br>还有就是由于 <code>js</code> 里没有像 <code>jquery</code> 里获取同级所有元素的<code>dom</code>操作，所以我自己写了个 <code>siblings(elm)</code> 以后也可以用，一劳永逸</p>
+<p>HTML代码：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"pn"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"list0"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"title"</span>&gt;</span>Yang<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"time"</span>&gt;</span>44分钟前 来自 +niPhone 6s<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"zy"</span>&gt;</span></div><div class="line">			单页/全屏滚动页面越来越常见了，它多用于产品介绍、招聘等内容较少的简单页面。针对这种效果也出现了不少 jQuery 插件。本文实现的效果类似于fullpage的单屏滚动，使用原生JS实现，不依赖任何js库...</div><div class="line">			<span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"show"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>展开全文<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span>单页/全屏滚动页面越来越常见了，它多用于产品介绍、招聘等内容较少的简单页面。针对这种效果也出现了不少 jQuery 插件。本文实现的效果类似于fullpage的单屏滚动，使用原生JS实现，不依赖任何js库今天的款待！一直觉得你们两口子颜值又高人又有趣，又都是高材生，认识你们真的很是很幸运的一件事！~ 终于修成正果了呀~祝福你们新婚快乐白头偕老~ </div><div class="line">			<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"hidd"</span>&gt;</span>收起全文<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"list0"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"title"</span>&gt;</span>Yang<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"time"</span>&gt;</span>44分钟前 来自 微博 weibo.com<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"zy"</span>&gt;</span></div><div class="line">			波澜壮阔的独立斗争，风起云涌的解放运动，卡斯特罗泼墨挥毫一人写就半部古巴史。戴名表开豪车上名校，亲美富二代卡斯特罗早早走上革命之路竟是由基因决定？艳福不浅，老卡又如何能在有生之年睡完传闻中的35000个女人？高晓松用数据还原真实的古巴，看今日...</div><div class="line">			<span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"show"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>展开全文<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span></div><div class="line">			波澜壮阔的独立斗争，风起云涌的解放运动，卡斯特罗泼墨挥毫一人写就半部古巴史。戴名表开豪车上名校，亲美富二代卡斯特罗早早走上革命之路竟是由基因决定？艳福不浅，老卡又如何能在有生之年睡完传闻中的35000个女人？高晓松用数据还原真实的古巴，看今日的它究竟是落后贫穷还是盛世繁华：L晓松奇谈之革命领袖卡斯特罗的传奇一生</div><div class="line">			<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"hidd"</span>&gt;</span>收起全文<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"list0"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"title"</span>&gt;</span>王尼玛<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"time"</span>&gt;</span>44分钟前 来自 微博weibo.com<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"zy"</span>&gt;</span>已退役的美国休斯顿德州人橄榄球队的外接手安德烈·约翰逊，为12位由儿童保护服务组织选出的孩子买圣诞节玩具，孩子们可以在80秒内...<span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"show"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>展开全文<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span></div><div class="line">			已退役的美国休斯顿德州人橄榄球队的外接手安德烈·约翰逊，为12位由儿童保护服务组织选出的孩子买圣诞节玩具，孩子们可以在80秒内选择他们喜欢的任何玩具，最终这些玩具花费19144.58美元，慷慨！好了好了别闹了，论飙车还是应该老司机出马！</div><div class="line">			<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"hidd"</span>&gt;</span>收起全文<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>CSS代码：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span>,<span class="selector-tag">h1</span>,<span class="selector-tag">h2</span>,<span class="selector-tag">h3</span>,<span class="selector-tag">h4</span>,<span class="selector-tag">h5</span>,<span class="selector-tag">h6</span>,<span class="selector-tag">hr</span>,<span class="selector-tag">p</span>,<span class="selector-tag">blockquote</span>,<span class="selector-tag">dl</span>,<span class="selector-tag">dt</span>,<span class="selector-tag">dd</span>,<span class="selector-tag">ul</span>,<span class="selector-tag">ol</span>,<span class="selector-tag">li</span>,<span class="selector-tag">pre</span>,<span class="selector-tag">form</span>,<span class="selector-tag">fieldset</span>,<span class="selector-tag">legend</span>,<span class="selector-tag">button</span>,<span class="selector-tag">input</span>,<span class="selector-tag">textarea</span>,<span class="selector-tag">th</span>,<span class="selector-tag">td</span>&#123;<span class="attribute">margin</span>:<span class="number">0</span>;<span class="attribute">padding</span>:<span class="number">0</span>;&#125;</div><div class="line"><span class="selector-tag">h1</span>,<span class="selector-tag">h2</span>,<span class="selector-tag">h3</span>,<span class="selector-tag">h4</span>,<span class="selector-tag">h5</span>,<span class="selector-tag">h6</span>&#123;<span class="attribute">font-size</span>:<span class="number">100%</span>;&#125;</div><div class="line"><span class="selector-tag">address</span>,<span class="selector-tag">cite</span>,<span class="selector-tag">dfn</span>,<span class="selector-tag">em</span>,<span class="selector-tag">var</span>&#123;<span class="attribute">font-style</span>:normal;&#125;</div><div class="line"><span class="selector-tag">code</span>,<span class="selector-tag">kbd</span>,<span class="selector-tag">pre</span>,<span class="selector-tag">samp</span>&#123;<span class="attribute">font-family</span>:courier new,courier,monospace;&#125;</div><div class="line"><span class="selector-tag">ul</span>,<span class="selector-tag">ol</span>&#123;<span class="attribute">list-style</span>:none;&#125;</div><div class="line"><span class="selector-tag">a</span>&#123;<span class="attribute">text-decoration</span>:none;&#125;</div><div class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span>&#123;<span class="attribute">text-decoration</span>:none;&#125;</div><div class="line"><span class="selector-tag">sup</span>&#123;<span class="attribute">vertical-align</span>:text-top;&#125;</div><div class="line"><span class="selector-tag">sub</span>&#123;<span class="attribute">vertical-align</span>:text-bottom;&#125;</div><div class="line"><span class="selector-tag">legend</span>&#123;<span class="attribute">color</span>:<span class="number">#000</span>;&#125;</div><div class="line"><span class="selector-tag">fieldset</span>,<span class="selector-tag">img</span>&#123;<span class="attribute">border</span>:<span class="number">0</span>;&#125;</div><div class="line"><span class="selector-tag">button</span>,<span class="selector-tag">input</span>,<span class="selector-tag">select</span>,<span class="selector-tag">textarea</span>&#123;<span class="attribute">font-size</span>:<span class="number">100%</span>;&#125;</div><div class="line"><span class="selector-tag">table</span>&#123;<span class="attribute">border-collapse</span>:collapse;<span class="attribute">border-spacing</span>:<span class="number">0</span>;&#125;</div><div class="line"><span class="selector-class">.clear</span>&#123;<span class="attribute">clear</span>: both;<span class="attribute">float</span>: none;<span class="attribute">height</span>: <span class="number">0</span>;<span class="attribute">overflow</span>: hidden;&#125;</div><div class="line"><span class="selector-tag">body</span>&#123;<span class="attribute">color</span>:<span class="number">#333</span>; <span class="attribute">font</span>: <span class="number">12px</span>/<span class="number">1.3</span> <span class="string">'Arial'</span>,<span class="string">'Microsoft YaHei'</span>;&#125;</div><div class="line"><span class="selector-id">#pn</span>&#123;<span class="attribute">width</span>: <span class="number">650px</span>; <span class="attribute">height</span>: auto; <span class="attribute">background</span>: <span class="number">#fff</span>; <span class="attribute">margin</span>: <span class="number">0</span> auto; <span class="attribute">padding</span>: <span class="number">5px</span>;&#125;</div><div class="line"><span class="selector-class">.list0</span>&#123;<span class="attribute">margin-bottom</span>: <span class="number">10px</span>;&#125;</div><div class="line"><span class="selector-class">.title</span>&#123; <span class="attribute">font-weight</span>: bold; <span class="attribute">font-size</span>: <span class="number">14px</span>; <span class="attribute">margin-bottom</span>: <span class="number">7px</span>;&#125;</div><div class="line"><span class="selector-class">.time</span>&#123;<span class="attribute">color</span>: <span class="number">#808080</span>; <span class="attribute">margin-bottom</span>: <span class="number">2px</span>;&#125;</div><div class="line"><span class="selector-class">.content</span>&#123;<span class="attribute">display</span>: none; <span class="attribute">padding</span>: <span class="number">1px</span> <span class="number">0</span> <span class="number">3px</span>; <span class="attribute">line-height</span>: <span class="number">23px</span>; <span class="attribute">font-size</span>: <span class="number">14px</span>; &#125;</div><div class="line">  </div><div class="line"><span class="selector-class">.btm</span>&#123;<span class="attribute">text-align</span>: right; <span class="attribute">height</span>: <span class="number">30px</span>; &#125;</div><div class="line"><span class="selector-class">.hidd</span>&#123; <span class="attribute">color</span>: <span class="number">#eb7350</span>; <span class="attribute">margin-left</span>: <span class="number">5px</span>; &#125;</div><div class="line"><span class="selector-class">.show</span>&#123; <span class="attribute">color</span>: <span class="number">#eb7350</span>; <span class="attribute">margin-left</span>: <span class="number">5px</span>; &#125;</div><div class="line"><span class="selector-class">.zy</span>&#123;<span class="attribute">padding</span>: <span class="number">1px</span> <span class="number">0</span> <span class="number">3px</span>; <span class="attribute">line-height</span>: <span class="number">23px</span>; <span class="attribute">font-size</span>: <span class="number">14px</span>;&#125;</div></pre></td></tr></table></figure></p>
+<p>JavaScript代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div></pre></td><td class="code"><pre><div class="line">+(<span class="function"><span class="keyword">function</span> (<span class="params">root, func</span>) </span>&#123;</div><div class="line">	<span class="comment">//在页面加载完后立即执行多个函数方案。</span></div><div class="line">	<span class="keyword">var</span> oldonload = <span class="built_in">window</span>.onload;</div><div class="line">	<span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">window</span>.onload != <span class="string">"function"</span>) &#123;</div><div class="line">		<span class="built_in">window</span>.onload = func;</div><div class="line">	&#125; <span class="keyword">else</span> &#123;</div><div class="line">		<span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">			<span class="keyword">if</span>(oldonload)&#123;</div><div class="line">				oldonload();</div><div class="line">			&#125;</div><div class="line">			func();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;(<span class="keyword">this</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="comment">//获取同级所有元素开始</span></div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">siblings</span>(<span class="params">elm</span>) </span>&#123;</div><div class="line">		<span class="keyword">var</span> a = [];</div><div class="line">		<span class="keyword">var</span> p = elm.parentNode.children;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>, pl = p.length; i &lt; pl; i++)&#123;</div><div class="line">			<span class="keyword">if</span>(p[i] !== elm) a.push(p[i]);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> a;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">// 获取查看全文的a标签</span></div><div class="line">	<span class="keyword">var</span> show = <span class="built_in">document</span>.getElementsByClassName(<span class="string">"show"</span>);</div><div class="line">	<span class="comment">// 遍历a</span></div><div class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; show.length; i++)&#123;</div><div class="line">		show[i].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			<span class="comment">//找到a的父级</span></div><div class="line">			<span class="keyword">var</span> father = <span class="keyword">this</span>.parentNode;</div><div class="line">			<span class="comment">//设置隐藏</span></div><div class="line">			father.style.display = <span class="string">"none"</span>;</div><div class="line">			<span class="comment">//找到父级的下一个节点</span></div><div class="line">			<span class="keyword">var</span> next = father.nextSibling;</div><div class="line">			<span class="comment">//判断下一个节点的数据类型，如果不是1（元素节点），那就接着往下找</span></div><div class="line">			<span class="keyword">if</span>(next.nodeType != <span class="number">1</span>)&#123;</div><div class="line">				next = next.nextSibling;</div><div class="line">			&#125;</div><div class="line">			<span class="comment">//正文显示</span></div><div class="line">			next.style.display = <span class="string">"block"</span>;</div><div class="line">			<span class="comment">//获取整个list0</span></div><div class="line">			<span class="keyword">var</span> ff = <span class="keyword">this</span>.parentNode.parentNode;</div><div class="line">			<span class="comment">//获取除去list0的所有同级元素</span></div><div class="line">			<span class="keyword">var</span> bro = siblings(ff);</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">var</span> y = <span class="number">0</span>; y &lt; bro.length; y++)&#123;</div><div class="line">				<span class="comment">//获取每个list0里的第一个content类名</span></div><div class="line">				<span class="keyword">var</span> w = bro[y].getElementsByClassName(<span class="string">"content"</span>)[<span class="number">0</span>];</div><div class="line">				<span class="comment">//获取content类名的前一个节点</span></div><div class="line">				<span class="keyword">var</span> wt = w.previousSibling;</div><div class="line">				<span class="comment">//判断前一个节点的数据类型，如果不是1（元素节点），那就接着往上找</span></div><div class="line">				<span class="keyword">if</span>(wt.nodeType != <span class="number">1</span>)&#123;</div><div class="line">					wt = wt.previousSibling;</div><div class="line">				&#125;</div><div class="line">				<span class="comment">//同级摘要部分显示</span></div><div class="line">				wt.style.display = <span class="string">"block"</span>;</div><div class="line">				<span class="comment">//同级全文部分隐藏</span></div><div class="line">				w.style.display = <span class="string">"none"</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">//下面就是点击收回全文的部分与展开原理一样</span></div><div class="line">	<span class="keyword">var</span> hidd = <span class="built_in">document</span>.getElementsByClassName(<span class="string">"hidd"</span>);</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; hidd.length; i++)&#123;</div><div class="line">		hidd[i].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			<span class="keyword">var</span> fafa = <span class="keyword">this</span>.parentNode;</div><div class="line">			fafa.style.display = <span class="string">"none"</span>;</div><div class="line">			<span class="keyword">var</span> pre = fafa.previousSibling;</div><div class="line">			<span class="keyword">if</span>(pre.nodeType != <span class="number">1</span>)&#123;</div><div class="line">				pre = pre.previousSibling;</div><div class="line">			&#125;</div><div class="line">			pre.style.display = <span class="string">"block"</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;))</div></pre></td></tr></table></figure></p>
+<p><a href="https://52yang.github.io/原生JS实现内容展开收起功能.html" title="原生JS实现内容展开收起功能" target="_blank" rel="external">展示效果</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/28/类似fullpage的单全屏滚动/" rel="next" title="类似fullpage的单全屏滚动">
+                <i class="fa fa-chevron-left"></i> 类似fullpage的单全屏滚动
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/love.jpg"
+               alt="Yang" />
+          <p class="site-author-name" itemprop="name">Yang</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yang</span>
+</div>
+
+
+
+<!--
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+-->
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

@@ -15,7 +15,7 @@
 <div style="background:#EEF;">3</div>
 <div style="background:red;">4</div>
 <script type="text/javascript">
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
 	var body = document.body,
 	html = document.documentElement;
 	var itv, height = document.body.offsetHeight;
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	document.body.addEventListener("onwheel" in document ? "wheel" : "mousewheel",
 		function(e) {
 			clearTimeout(itv);
-			itv = setTimeout(function() {
+			itv = setTimeout(function () {
 				var delta = e.wheelDelta / 120 || -e.deltaY / 3;
 				page -= delta;
 				var max = (document.body.scrollHeight / height | 0) - 1;
