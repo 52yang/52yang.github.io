@@ -5,10 +5,14 @@
   
 
 
-<html class="theme-next pisces use-motion">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
+  <script type="text/javascript">
+    // window.location.href = "https://52yang.github.io/熊.html";
+    // setTimeout(window.location.href = "https://52yang.github.io", 2000);
+  </script>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
@@ -27,11 +31,12 @@
 
 
 
+
+
+
   
   
-    
-  
-  <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -65,11 +70,9 @@
 
 
 
-  
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="//cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="ouuo, Yang, 最痛的距离，不是她不在我身边而是她在我心里 - 崽崽 QQ1099924833" />
@@ -81,7 +84,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/love.jpg?v=5.0.1" />
+  <link rel="shortcut icon" type="image/x-icon" href="/love.jpg?v=5.1.0" />
 
 
 
@@ -100,19 +103,35 @@
 
 
 
-<script type="text/javascript" id="hexo.configuration">
+<script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
+    root: '/',
     scheme: 'Pisces',
-    sidebar: {"position":"left","display":"hide"},
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 0,
-      author: 'xirong'
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
   };
 </script>
+
+
+
+  <link rel="canonical" href="http://ouuo.bid/page/3/"/>
+
+
+
+
 
   <title> Yang's Blog </title>
 </head>
@@ -120,6 +139,10 @@
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
+
+
+
+
 
 
 
@@ -141,25 +164,29 @@
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Yang's Blog</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yang's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不会开挖掘机的厨师不是好程序员</p>
+      
   </div>
-  <p class="site-subtitle">不会开挖掘机的厨师不是好程序员</p>
-</div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
 <nav class="site-nav">
@@ -175,6 +202,16 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -198,16 +235,6 @@
           </a>
         </li>
       
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
 
       
     </ul>
@@ -215,6 +242,8 @@
 
   
 </nav>
+
+
 
  </div>
     </header>
@@ -229,13 +258,26 @@
       
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://ouuo.bid/2017/02/27/拥抱ES2015（ES6）/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Yang">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/love.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Yang's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Yang's Blog" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -257,13 +299,21 @@
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-27T11:43:21+08:00" content="2017-02-27">
-              2017-02-27
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-27T11:43:21+08:00">
+                2017-02-27
+              </time>
+            
+
+            
+
+            
           </span>
 
           
@@ -273,20 +323,14 @@
           
 
           
-
-          
-          
-             <span id="/2017/02/27/拥抱ES2015（ES6）/" class="leancloud_visitors" data-flag-title="拥抱ES2015（ES6）">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
@@ -300,57 +344,17 @@
       
         
           
-            <h2 id="介绍ES2015（ES6，即ECMAScript-6）"><a href="#介绍ES2015（ES6，即ECMAScript-6）" class="headerlink" title="介绍ES2015（ES6，即ECMAScript 6）"></a>介绍ES2015（ES6，即ECMAScript 6）</h2><p>ES6（下面就用ES6来写） 是新版的 JavaScript，Node.js 已经完全支持</p>
-<p>运行本文示例代码，可以直接在Chrome浏览器（谷歌浏览器）运行</p>
-<h2 id="使用-let-和-const"><a href="#使用-let-和-const" class="headerlink" title="使用 let 和 const"></a>使用 <code>let</code> 和 <code>const</code></h2><p>ES6 可以用 <code>const</code> 或 <code>let</code> 替换 <code>var</code> ，它们定义了块级作用域变量。</p>
-<p>示例代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</div><div class="line">	<span class="keyword">var</span> val = i;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(val) <span class="comment">// 4</span></div></pre></td></tr></table></figure></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</div><div class="line">	<span class="keyword">let</span> val = i;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(val) <span class="comment">// 报错： val is not defined</span></div></pre></td></tr></table></figure>
-<p>是不是发现变量 <code>val</code> 在用 <code>var</code> 定义的时候可以打印，而用 <code>let</code> 定义的时候却不能。<br>用 let 定义的时候变量 <code>val</code> 只能在 <code>for</code> 循环中使用。</p>
-<p><code>const</code> 跟 <code>let</code> 很像，但是它定义的变量值无法改变。</p>
-<p>示例代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> user = &#123;<span class="attr">name</span>: <span class="string">"Arunoda"</span>&#125;;</div><div class="line">user.name = <span class="string">"Susiripala"</span>;</div><div class="line"><span class="built_in">console</span>.log(user.name);  <span class="comment">// Susiripala</span></div></pre></td></tr></table></figure></p>
-<p>改变的是变量 <code>user</code> 内部的属性，并没有改变 <code>user</code> 本身。</p>
-<p>许多人更喜欢用 <code>const</code> 代替 <code>let</code> 。</p>
-<h2 id="使用箭头函数整理你的代码"><a href="#使用箭头函数整理你的代码" class="headerlink" title="使用箭头函数整理你的代码"></a>使用箭头函数整理你的代码</h2><p>熟悉的方式：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> numbers = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">50</span>];</div><div class="line"><span class="keyword">const</span> multiplyBy10 = numbers.map(<span class="function"><span class="keyword">function</span>(<span class="params">a</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> a * <span class="number">10</span>;</div><div class="line">&#125;);</div><div class="line"><span class="built_in">console</span>.log(multiplyBy10); <span class="comment">// [100, 200, 300, 500]</span></div></pre></td></tr></table></figure></p>
-<p>使用箭头函数以后：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> numbers = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">50</span>];</div><div class="line"><span class="keyword">const</span> multiplyBy10 = numbers.map(<span class="function"><span class="params">a</span> =&gt;</span> a * <span class="number">10</span>);</div><div class="line"><span class="built_in">console</span>.log(multiplyBy10); <span class="comment">// [100, 200, 300, 500]</span></div></pre></td></tr></table></figure></p>
-<p>如果方法接受不止1个参数，可以这么写：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> numbers = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">50</span>];</div><div class="line"><span class="keyword">const</span> multiplyByIndex = numbers.map(<span class="function">(<span class="params">a, i</span>) =&gt;</span> a * i);</div><div class="line"><span class="built_in">console</span>.log(multiplyByIndex);</div></pre></td></tr></table></figure></p>
-<p>箭头函数返回一个对象的话，需要加圆括号：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> numbers = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">50</span>];</div><div class="line"><span class="keyword">const</span> multiplyBy10 = numbers.map(<span class="function"><span class="params">a</span> =&gt;</span> (&#123;<span class="attr">res</span>: a * <span class="number">10</span>&#125;));</div><div class="line"><span class="built_in">console</span>.log(multiplyBy10);</div></pre></td></tr></table></figure></p>
-<p>不再使用“self=this”<br>以前的代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Clock</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.currentTime = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">&#125;</div><div class="line">Clock.prototype.start = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> self = <span class="keyword">this</span>;</div><div class="line">    setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        self.currentTime = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">    &#125;, <span class="number">1000</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>可以用箭头函数代替 <code>self=this</code> ：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Clock</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.currentTime = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">&#125;</div><div class="line">Clock.prototype.start = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">        <span class="keyword">this</span>.currentTime = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">    &#125;, <span class="number">1000</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><code>setInterval</code> 里面用了箭头函数，它携带了 <code>start</code> 方法的上下文（this）。</p>
-<p>使用箭头函数要多加小心，并不是随处可用的，箭头函数会携带函数定义时的上下文。</p>
-<h2 id="改良的对象字面量"><a href="#改良的对象字面量" class="headerlink" title="改良的对象字面量"></a>改良的对象字面量</h2><p>在对象里面定义一个方法，可以这么写：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> user = &#123;</div><div class="line">    getName() &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">'Arunoda'</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(user.getName());</div></pre></td></tr></table></figure></p>
-<p>不必每次都写 <code>function</code> 关键字。</p>
-<p>这是最酷的特性，你会喜欢的：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> name = <span class="string">'Arunoda'</span>;</div><div class="line"><span class="keyword">const</span> age = <span class="number">80</span>;</div><div class="line"><span class="keyword">const</span> user = &#123;name, age&#125;;</div></pre></td></tr></table></figure></p>
-<p>瞅瞅多简单，并不用这么啰嗦：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> name = <span class="string">'Arunoda'</span>;</div><div class="line"><span class="keyword">const</span> age = <span class="number">80</span>;</div><div class="line"><span class="keyword">const</span> user = &#123;</div><div class="line">    <span class="attr">name</span>: name,</div><div class="line">    <span class="attr">age</span>: age</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<p>解构对象<br>很容易地提取 user 对象的 name 和 age 字段：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> user = &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">'Arunoda'</span>,</div><div class="line">    <span class="attr">age</span>: <span class="number">80</span>,</div><div class="line">    <span class="attr">city</span>: <span class="string">'Colombo'</span></div><div class="line">&#125;;</div><div class="line"><span class="keyword">const</span> &#123;name, age&#125; = user;</div><div class="line"><span class="built_in">console</span>.log(name, age);</div></pre></td></tr></table></figure></p>
-<p>对于函数相当有用，上代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">printName</span>(<span class="params">&#123;name&#125;</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Name is: '</span> + name);</div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> user = &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">'Arunoda'</span>,</div><div class="line">    <span class="attr">age</span>: <span class="number">80</span>,</div><div class="line">    <span class="attr">city</span>: <span class="string">'Colombo'</span></div><div class="line">&#125;;</div><div class="line">printName(user);</div></pre></td></tr></table></figure></p>
-<p>不仅简化了代码，而且可以自描述。看到函数第一行时，我们便会明白使用传入对象的哪个字段。</p>
-<p>可以定义传入对象的默认值。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">printUser</span>(<span class="params">&#123;name, age = <span class="number">20</span>&#125;</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Name is: '</span> + name + <span class="string">' Age: '</span> + age);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>像传入对象一样，同样可以从传入的数组中解构值：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">printUser</span>(<span class="params">[name, age = <span class="number">20</span>]</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Name is: '</span> + name + <span class="string">' Age: '</span> + age);</div><div class="line">&#125;</div><div class="line">printUser([<span class="string">"Arunoda"</span>, <span class="number">80</span>]);</div></pre></td></tr></table></figure></p>
-<p>前所未见的方式传递（spread）数组<br>以前的代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> a + b;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sumAndLog</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> result = sum(a, b);</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Result is: '</span> + result);</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div><div class="line">sumAndLog(<span class="number">10</span>, <span class="number">20</span>);</div></pre></td></tr></table></figure></p>
-<p>ES6 代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> a + b;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sumAndLog</span>(<span class="params">...args</span>) </span>&#123;</div><div class="line">    <span class="keyword">const</span> result = sum(...args);</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Result is: '</span> + result);</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div><div class="line">sumAndLog(<span class="number">10</span>, <span class="number">20</span>);</div></pre></td></tr></table></figure></p>
-<p>在 sumAndLog 方法中使用 spread 操作符（…），可以很简单地把所有参数存入 args 变量，然后再用 spread 操作符把 args 传入 sum 方法。</p>
-<p>再看以下例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">printTeam</span>(<span class="params">leader, ...others</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'Leader: '</span> + leader + <span class="string">' - Others: '</span> + others);</div><div class="line">&#125;</div><div class="line">printTeam(<span class="string">'Arunoda'</span>, <span class="string">'John'</span>, <span class="string">'Singh'</span>);</div><div class="line"><span class="comment">//输出结果："Leader: Arunoda - Others: John,Singh"</span></div></pre></td></tr></table></figure></p>
-<p>克隆、合并对象<br>以往都是用 underscore 或者 lodash，克隆、合并对象：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> user = &#123;<span class="attr">name</span>: <span class="string">"Arunoda"</span>&#125;;</div><div class="line"><span class="keyword">var</span> newUser = _.clone(user);</div><div class="line"><span class="keyword">var</span> withAge = _.extend(user, &#123;<span class="attr">age</span>: <span class="number">20</span>&#125;);</div><div class="line"><span class="keyword">var</span> newUserVersion = _.defaults(&#123;<span class="attr">age</span>: <span class="number">80</span>&#125;, user);</div><div class="line"><span class="built_in">console</span>.log(newUser, withAge, newUserVersion);</div></pre></td></tr></table></figure></p>
-<p>ES6 不需要任何工具库，轻松实现以上功能。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> user = &#123;<span class="attr">name</span>: <span class="string">"Arunoda"</span>&#125;;</div><div class="line"><span class="keyword">const</span> newUser = &#123;...user&#125;;</div><div class="line"><span class="keyword">const</span> withAge = &#123;...user, <span class="attr">age</span>: <span class="number">20</span>&#125;;</div><div class="line"><span class="keyword">const</span> newUserVersion = &#123;<span class="attr">age</span>: <span class="number">80</span>, ...user&#125;;</div><div class="line"><span class="built_in">console</span>.log(newUser, withAge, newUserVersion);</div></pre></td></tr></table></figure></p>
-<p>看以下例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> user = &#123;</div><div class="line">	<span class="attr">name</span>: <span class="string">'Arunoda'</span>,</div><div class="line">	<span class="attr">emails</span>: [<span class="string">'hello@arunoda.io'</span>]</div><div class="line">&#125;;</div><div class="line"><span class="keyword">const</span> newUser = &#123;...user&#125;;</div><div class="line">newUser.emails.push(<span class="string">'mail@arunoda.io'</span>);</div><div class="line"><span class="built_in">console</span>.log(user.emails);</div><div class="line"><span class="comment">//输出结果：["hello@arunoda.io", "mail@arunoda.io"]</span></div></pre></td></tr></table></figure></p>
-<p>尽管我们克隆了对象，但不是深度克隆，只克隆了顶层字段，emails 数组字段使用的仍是同一个。</p>
-<p>往数组里添加元素</p>
-<p>跟对象类似，我们同样可以克隆数组：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> marks = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>];</div><div class="line"><span class="keyword">const</span> newMarks = [...marks, <span class="number">40</span>];</div><div class="line"><span class="built_in">console</span>.log(marks, newMarks);</div><div class="line">JavaScript 不变性（Immutability）</div></pre></td></tr></table></figure></p>
-<p>这些日子，JavaScript 也兴起函数式编程的概念。因此，我们可以尝试写写纯函数。</p>
-<p>纯函数：一个函数接收一些值，并且返回一些值，但是通过参数接收到的值不会被改变。 同样的输入总是返回同样的值。<br>random() 就不是一个纯函数，任何可以修改全局状态的函数都不能称之为纯。</p>
-<p>用 spread 操作符可以轻松实现。</p>
-<p>用于对象：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addMarks</span>(<span class="params">user, marks</span>) </span>&#123;</div><div class="line">	<span class="keyword">return</span> &#123;</div><div class="line">		...user,</div><div class="line">		marks</div><div class="line">	&#125;;</div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> user = &#123;<span class="attr">username</span>: <span class="string">'arunoda'</span>&#125;;</div><div class="line"><span class="keyword">const</span> userWithMarks = addMarks(user, <span class="number">80</span>);</div><div class="line"><span class="built_in">console</span>.log(user, userWithMarks);</div></pre></td></tr></table></figure></p>
-<p>用于数组：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addUser</span>(<span class="params">users, username</span>) </span>&#123;</div><div class="line">	<span class="keyword">const</span> user = &#123;username&#125;;</div><div class="line">	<span class="keyword">return</span> [</div><div class="line">		...users,</div><div class="line">		user</div><div class="line">	];</div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> user = &#123;<span class="attr">username</span>: <span class="string">'arunoda'</span>&#125;;</div><div class="line"><span class="keyword">const</span> users = [user];</div><div class="line"><span class="keyword">const</span> newUsers = addUser(users, <span class="string">'john'</span>);</div><div class="line"><span class="built_in">console</span>.log(users, newUsers);</div></pre></td></tr></table></figure></p>
-<h2 id="多行字符串"><a href="#多行字符串" class="headerlink" title="多行字符串"></a>多行字符串</h2><p>既然支持模板字符串，多行字符串也不在话下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> message = <span class="string">`</span></div><div class="line">  # Title</div><div class="line">  This is a multi line string as markdown.</div><div class="line">  It's pretty nice.</div><div class="line">`;</div><div class="line"><span class="built_in">console</span>.log(message);</div></pre></td></tr></table></figure></p>
-<p>没有模板字符串的话，是这个样子的：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> message = <span class="string">"\n  # Title\n\n  This is a multi line string as markdown.\n  It's pretty nice.\n"</span>;</div><div class="line"><span class="built_in">console</span>.log(message);</div></pre></td></tr></table></figure></p>
-<h2 id="像-Java-一样写-Class"><a href="#像-Java-一样写-Class" class="headerlink" title="像 Java 一样写 Class"></a>像 Java 一样写 Class</h2><p>JavaScript 并不是真正的面向对象语言，但是可以用函数和原型模拟类。ES2015 可以写真正原生的类了。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vehicle</span> </span>&#123;</div><div class="line">	<span class="keyword">constructor</span>(type, number) &#123;</div><div class="line">		<span class="keyword">this</span>.type = type;</div><div class="line">		<span class="keyword">this</span>.number = number;</div><div class="line">	&#125;</div><div class="line">	display() &#123;</div><div class="line">		<span class="keyword">return</span> <span class="string">`Number: <span class="subst">$&#123;<span class="keyword">this</span>.number&#125;</span>`</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> v1 = <span class="keyword">new</span> Vehicle(<span class="string">'Car'</span>, <span class="string">'GH-2343'</span>);</div><div class="line"><span class="built_in">console</span>.log(v1.display());</div></pre></td></tr></table></figure></p>
-<p>继承一个类：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vehicle</span> </span>&#123;</div><div class="line">	<span class="keyword">constructor</span>(type, number) &#123;</div><div class="line">		<span class="keyword">this</span>.type = type;</div><div class="line">		<span class="keyword">this</span>.number = number;</div><div class="line">	&#125;</div><div class="line">	display() &#123;</div><div class="line">		<span class="keyword">return</span> <span class="string">`Number: <span class="subst">$&#123;<span class="keyword">this</span>.number&#125;</span>`</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Car</span> <span class="keyword">extends</span> <span class="title">Vehicle</span> </span>&#123;</div><div class="line">	<span class="keyword">constructor</span>(number) &#123;</div><div class="line">		<span class="keyword">super</span>(<span class="string">'Car'</span>, number);</div><div class="line">	&#125;</div><div class="line">	display() &#123;</div><div class="line">		<span class="keyword">const</span> value = <span class="keyword">super</span>.display();</div><div class="line">		<span class="keyword">return</span> <span class="string">`Car <span class="subst">$&#123;value&#125;</span>`</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> v1 = <span class="keyword">new</span> Car(<span class="string">'GH-2343'</span>);</div><div class="line"><span class="built_in">console</span>.log(v1.display());</div></pre></td></tr></table></figure></p>
-<p>小汽车继承了车辆：</p>
-<p>在 Car constructor 内部调用了 super constructor （Vehicle 的 constructor）。<br>Car 的 display() 方法内部，调用了 super.display() 。这里展示了子类如何继承方法。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vehicle</span> </span>&#123;</div><div class="line">	<span class="keyword">constructor</span>(type, number) &#123;</div><div class="line">		<span class="keyword">this</span>.type = type;</div><div class="line">		<span class="keyword">this</span>.number = number;</div><div class="line">	&#125;</div><div class="line">	display() &#123;</div><div class="line">		<span class="keyword">return</span> <span class="string">`Number: <span class="subst">$&#123;<span class="keyword">this</span>.number&#125;</span>`</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Car</span> <span class="keyword">extends</span> <span class="title">Vehicle</span> </span>&#123;</div><div class="line">	display() &#123;</div><div class="line">		<span class="keyword">const</span> value = <span class="keyword">super</span>.display();</div><div class="line">		<span class="keyword">return</span> <span class="string">`Car <span class="subst">$&#123;value&#125;</span>`</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> v1 = <span class="keyword">new</span> Car(<span class="string">'GH-2343'</span>);</div><div class="line"><span class="built_in">console</span>.log(v1.display());</div></pre></td></tr></table></figure></p>
-<p>Car 类没有实现 constructor 的话，它会用 Vehicle 的 constructor 。</p>
-
-          
+          介绍ES2015（ES6，即ECMAScript 6）ES6（下面就用ES6来写） 是新版的 JavaScript，Node.js 已经完全支持
+运行本文示例代码，可以直接在Chrome浏览器（谷歌浏览器）运行
+使用 let 和 constES6 可以用 const 或 let 替换 var ，它们
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/27/拥抱ES2015（ES6）/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -363,7 +367,10 @@
       
     </div>
 
+
     <footer class="post-footer">
+      
+
       
 
       
@@ -380,13 +387,26 @@
       
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://ouuo.bid/2017/02/24/CSS3与JavaScript做梦熊/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Yang">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/love.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Yang's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Yang's Blog" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -408,13 +428,21 @@
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-24T15:42:42+08:00" content="2017-02-24">
-              2017-02-24
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-24T15:42:42+08:00">
+                2017-02-24
+              </time>
+            
+
+            
+
+            
           </span>
 
           
@@ -424,20 +452,14 @@
           
 
           
-
-          
-          
-             <span id="/2017/02/24/CSS3与JavaScript做梦熊/" class="leancloud_visitors" data-flag-title="CSS3与JavaScript做梦熊">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
@@ -451,14 +473,16 @@
       
         
           
-            <p>做前端的同学对HTML5中<code>svg</code>标签，CSS3中的<code>csstransform</code>效果，ES6中的箭头函数 <code>=&gt;</code>肯定不陌生，做一只萌萌哒的小熊动画，现在开始吧！</p>
-<h3 id="HML代码"><a href="#HML代码" class="headerlink" title="HML代码"></a>HML代码</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">style</span>=<span class="string">"transform: scale(.5);"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"nose"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"nose-be"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"nose-mi"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"nose-af"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"l-eye-wrap"</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"eye eye-be"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"eye eye-mi"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"eye eye-af"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"l-eye-face"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"l-ear-wrap"</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ear l-ear"</span>&gt;</span></div><div class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ear-hole l-ear-hole"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ear-hole-mask l-ear-hole-mask"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"r-eye-wrap"</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"eye eye-be"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"eye eye-mi"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"eye eye-af"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"r-eye-face"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"r-ear-wrap"</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ear r-ear"</span>&gt;</span></div><div class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ear-hole r-ear-hole"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ear-hole-mask r-ear-hole-mask"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"face"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">svg</span> <span class="attr">xmlns</span>=<span class="string">""</span> <span class="attr">version</span>=<span class="string">"1.1"</span> <span class="attr">width</span>=<span class="string">"0"</span> <span class="attr">height</span>=<span class="string">"0"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">defs</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">filter</span> <span class="attr">id</span>=<span class="string">"gooey"</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">feGaussianBlur</span> <span class="attr">in</span>=<span class="string">"SourceGraphic"</span> <span class="attr">stdDeviation</span>=<span class="string">"10"</span> <span class="attr">result</span>=<span class="string">"step1"</span>/&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">feColorMatrix</span> <span class="attr">in</span>=<span class="string">"step1"</span> <span class="attr">mode</span>=<span class="string">"matrix"</span> <span class="attr">values</span>=<span class="string">"</span></span></div><div class="line">                    1 0 0 0 0</div><div class="line">                    0 1 0 0 0</div><div class="line">                    0 0 1 0 0  </div><div class="line">                    0 0 0 19 -9" <span class="attr">result</span>=<span class="string">"step2"</span> /&gt;</div><div class="line">                <span class="tag">&lt;<span class="name">feComposite</span> <span class="attr">in</span>=<span class="string">"SourceGraphic"</span> <span class="attr">in2</span>=<span class="string">"step2"</span> <span class="attr">operator</span>=<span class="string">"atop"</span>/&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">filter</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">defs</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">svg</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="CSS3代码"><a href="#CSS3代码" class="headerlink" title="CSS3代码"></a>CSS3代码</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div><div class="line">264</div><div class="line">265</div><div class="line">266</div><div class="line">267</div><div class="line">268</div><div class="line">269</div><div class="line">270</div><div class="line">271</div><div class="line">272</div><div class="line">273</div><div class="line">274</div><div class="line">275</div><div class="line">276</div><div class="line">277</div><div class="line">278</div><div class="line">279</div><div class="line">280</div><div class="line">281</div><div class="line">282</div><div class="line">283</div><div class="line">284</div><div class="line">285</div><div class="line">286</div><div class="line">287</div><div class="line">288</div><div class="line">289</div><div class="line">290</div><div class="line">291</div><div class="line">292</div><div class="line">293</div><div class="line">294</div><div class="line">295</div><div class="line">296</div><div class="line">297</div><div class="line">298</div><div class="line">299</div><div class="line">300</div><div class="line">301</div><div class="line">302</div><div class="line">303</div><div class="line">304</div><div class="line">305</div><div class="line">306</div><div class="line">307</div><div class="line">308</div><div class="line">309</div><div class="line">310</div><div class="line">311</div><div class="line">312</div><div class="line">313</div><div class="line">314</div><div class="line">315</div><div class="line">316</div><div class="line">317</div><div class="line">318</div><div class="line">319</div><div class="line">320</div><div class="line">321</div><div class="line">322</div><div class="line">323</div><div class="line">324</div><div class="line">325</div><div class="line">326</div><div class="line">327</div><div class="line">328</div><div class="line">329</div><div class="line">330</div><div class="line">331</div><div class="line">332</div><div class="line">333</div><div class="line">334</div><div class="line">335</div><div class="line">336</div><div class="line">337</div><div class="line">338</div><div class="line">339</div><div class="line">340</div><div class="line">341</div><div class="line">342</div><div class="line">343</div><div class="line">344</div><div class="line">345</div><div class="line">346</div><div class="line">347</div><div class="line">348</div><div class="line">349</div><div class="line">350</div><div class="line">351</div><div class="line">352</div><div class="line">353</div><div class="line">354</div><div class="line">355</div><div class="line">356</div><div class="line">357</div><div class="line">358</div><div class="line">359</div><div class="line">360</div><div class="line">361</div><div class="line">362</div><div class="line">363</div><div class="line">364</div><div class="line">365</div><div class="line">366</div><div class="line">367</div><div class="line">368</div><div class="line">369</div><div class="line">370</div><div class="line">371</div><div class="line">372</div><div class="line">373</div><div class="line">374</div><div class="line">375</div><div class="line">376</div><div class="line">377</div><div class="line">378</div><div class="line">379</div><div class="line">380</div><div class="line">381</div><div class="line">382</div><div class="line">383</div><div class="line">384</div><div class="line">385</div><div class="line">386</div><div class="line">387</div><div class="line">388</div><div class="line">389</div><div class="line">390</div><div class="line">391</div><div class="line">392</div><div class="line">393</div><div class="line">394</div><div class="line">395</div><div class="line">396</div><div class="line">397</div><div class="line">398</div><div class="line">399</div><div class="line">400</div><div class="line">401</div><div class="line">402</div><div class="line">403</div><div class="line">404</div><div class="line">405</div><div class="line">406</div><div class="line">407</div><div class="line">408</div><div class="line">409</div><div class="line">410</div><div class="line">411</div><div class="line">412</div><div class="line">413</div><div class="line">414</div><div class="line">415</div><div class="line">416</div><div class="line">417</div><div class="line">418</div><div class="line">419</div><div class="line">420</div><div class="line">421</div><div class="line">422</div><div class="line">423</div><div class="line">424</div><div class="line">425</div><div class="line">426</div><div class="line">427</div><div class="line">428</div><div class="line">429</div><div class="line">430</div><div class="line">431</div><div class="line">432</div><div class="line">433</div><div class="line">434</div><div class="line">435</div><div class="line">436</div><div class="line">437</div><div class="line">438</div><div class="line">439</div><div class="line">440</div><div class="line">441</div><div class="line">442</div><div class="line">443</div><div class="line">444</div><div class="line">445</div><div class="line">446</div><div class="line">447</div><div class="line">448</div><div class="line">449</div><div class="line">450</div><div class="line">451</div><div class="line">452</div><div class="line">453</div><div class="line">454</div><div class="line">455</div><div class="line">456</div><div class="line">457</div><div class="line">458</div><div class="line">459</div><div class="line">460</div><div class="line">461</div><div class="line">462</div><div class="line">463</div><div class="line">464</div><div class="line">465</div><div class="line">466</div><div class="line">467</div><div class="line">468</div><div class="line">469</div><div class="line">470</div><div class="line">471</div><div class="line">472</div><div class="line">473</div><div class="line">474</div><div class="line">475</div><div class="line">476</div><div class="line">477</div><div class="line">478</div><div class="line">479</div><div class="line">480</div><div class="line">481</div><div class="line">482</div><div class="line">483</div><div class="line">484</div><div class="line">485</div><div class="line">486</div><div class="line">487</div><div class="line">488</div><div class="line">489</div><div class="line">490</div><div class="line">491</div><div class="line">492</div><div class="line">493</div><div class="line">494</div><div class="line">495</div><div class="line">496</div><div class="line">497</div><div class="line">498</div><div class="line">499</div><div class="line">500</div><div class="line">501</div><div class="line">502</div><div class="line">503</div><div class="line">504</div><div class="line">505</div><div class="line">506</div><div class="line">507</div><div class="line">508</div><div class="line">509</div><div class="line">510</div><div class="line">511</div><div class="line">512</div><div class="line">513</div><div class="line">514</div><div class="line">515</div><div class="line">516</div><div class="line">517</div><div class="line">518</div><div class="line">519</div><div class="line">520</div><div class="line">521</div><div class="line">522</div><div class="line">523</div><div class="line">524</div><div class="line">525</div><div class="line">526</div><div class="line">527</div><div class="line">528</div><div class="line">529</div><div class="line">530</div><div class="line">531</div><div class="line">532</div><div class="line">533</div><div class="line">534</div><div class="line">535</div><div class="line">536</div><div class="line">537</div><div class="line">538</div><div class="line">539</div><div class="line">540</div><div class="line">541</div><div class="line">542</div><div class="line">543</div><div class="line">544</div><div class="line">545</div><div class="line">546</div><div class="line">547</div><div class="line">548</div><div class="line">549</div><div class="line">550</div><div class="line">551</div><div class="line">552</div><div class="line">553</div><div class="line">554</div><div class="line">555</div><div class="line">556</div><div class="line">557</div><div class="line">558</div><div class="line">559</div><div class="line">560</div><div class="line">561</div><div class="line">562</div><div class="line">563</div><div class="line">564</div><div class="line">565</div><div class="line">566</div><div class="line">567</div><div class="line">568</div><div class="line">569</div><div class="line">570</div><div class="line">571</div><div class="line">572</div><div class="line">573</div><div class="line">574</div><div class="line">575</div><div class="line">576</div><div class="line">577</div><div class="line">578</div><div class="line">579</div><div class="line">580</div><div class="line">581</div><div class="line">582</div><div class="line">583</div><div class="line">584</div><div class="line">585</div><div class="line">586</div><div class="line">587</div><div class="line">588</div><div class="line">589</div><div class="line">590</div><div class="line">591</div><div class="line">592</div><div class="line">593</div><div class="line">594</div><div class="line">595</div><div class="line">596</div><div class="line">597</div><div class="line">598</div><div class="line">599</div><div class="line">600</div><div class="line">601</div><div class="line">602</div><div class="line">603</div><div class="line">604</div><div class="line">605</div><div class="line">606</div><div class="line">607</div><div class="line">608</div><div class="line">609</div><div class="line">610</div><div class="line">611</div><div class="line">612</div><div class="line">613</div><div class="line">614</div><div class="line">615</div><div class="line">616</div><div class="line">617</div><div class="line">618</div><div class="line">619</div><div class="line">620</div><div class="line">621</div><div class="line">622</div><div class="line">623</div><div class="line">624</div><div class="line">625</div><div class="line">626</div><div class="line">627</div><div class="line">628</div><div class="line">629</div><div class="line">630</div><div class="line">631</div><div class="line">632</div><div class="line">633</div><div class="line">634</div><div class="line">635</div><div class="line">636</div><div class="line">637</div><div class="line">638</div><div class="line">639</div><div class="line">640</div><div class="line">641</div><div class="line">642</div><div class="line">643</div><div class="line">644</div><div class="line">645</div><div class="line">646</div><div class="line">647</div><div class="line">648</div><div class="line">649</div><div class="line">650</div><div class="line">651</div><div class="line">652</div><div class="line">653</div><div class="line">654</div><div class="line">655</div><div class="line">656</div><div class="line">657</div><div class="line">658</div><div class="line">659</div><div class="line">660</div><div class="line">661</div><div class="line">662</div><div class="line">663</div><div class="line">664</div><div class="line">665</div><div class="line">666</div><div class="line">667</div><div class="line">668</div><div class="line">669</div><div class="line">670</div><div class="line">671</div><div class="line">672</div><div class="line">673</div><div class="line">674</div><div class="line">675</div><div class="line">676</div><div class="line">677</div><div class="line">678</div><div class="line">679</div><div class="line">680</div><div class="line">681</div><div class="line">682</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.face</span>,<span class="selector-class">.nose</span> &#123;</div><div class="line">	<span class="attribute">-webkit-transform</span>: <span class="built_in">scale</span>(0,0)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.face</span>,<span class="selector-class">.nose-af</span>,<span class="selector-class">.nose-be</span>,<span class="selector-class">.nose-mi</span> &#123;</div><div class="line">	<span class="attribute">-webkit-transition</span>: <span class="number">1s</span>;</div><div class="line">	<span class="attribute">position</span>: absolute</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.ear</span>,<span class="selector-class">.eye</span>,<span class="selector-class">.face</span>,<span class="selector-class">.l-ear-wrap</span>,<span class="selector-class">.l-eye-face</span>,<span class="selector-class">.l-eye-wrap</span>,<span class="selector-class">.main</span>,<span class="selector-class">.nose</span>,<span class="selector-class">.nose-af</span>,<span class="selector-class">.nose-be</span>,<span class="selector-class">.nose-mi</span>,<span class="selector-class">.r-ear-wrap</span>,<span class="selector-class">.r-eye-face</span>,<span class="selector-class">.r-eye-wrap</span> &#123;</div><div class="line">	<span class="attribute">position</span>: absolute</div><div class="line">&#125;</div><div class="line"></div><div class="line">* &#123;</div><div class="line">	<span class="attribute">box-sizing</span>: border-box</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">body</span>,<span class="selector-tag">html</span> &#123;</div><div class="line">	<span class="attribute">height</span>: <span class="number">100%</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">	<span class="attribute">margin</span>: <span class="number">0</span>;</div><div class="line">	<span class="attribute">display</span>: -webkit-box;</div><div class="line">	<span class="attribute">display</span>: -ms-flexbox;</div><div class="line">	<span class="attribute">display</span>: flex;</div><div class="line">	<span class="attribute">-webkit-box-orient</span>: vertical;</div><div class="line">	<span class="attribute">-webkit-box-direction</span>: normal;</div><div class="line">	<span class="attribute">-ms-flex-flow</span>: column wrap;</div><div class="line">	<span class="attribute">flex-flow</span>: column wrap;</div><div class="line">	<span class="attribute">background</span>: <span class="number">#E74C3C</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.main</span> &#123;</div><div class="line">	<span class="attribute">top</span>: <span class="number">68%</span>;</div><div class="line">	<span class="attribute">left</span>: <span class="number">50%</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.nose</span> &#123;</div><div class="line">	<span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">	<span class="attribute">left</span>: <span class="number">50%</span>;</div><div class="line">	<span class="attribute">margin-left</span>: -<span class="number">40px</span>;</div><div class="line">	<span class="attribute">margin-top</span>: -<span class="number">30px</span>;</div><div class="line">	<span class="attribute">width</span>: <span class="number">80px</span>;</div><div class="line">	<span class="attribute">height</span>: <span class="number">80px</span>;</div><div class="line">	<span class="attribute">z-index</span>: <span class="number">10</span>;</div><div class="line">	<span class="attribute">transform</span>: <span class="built_in">scale</span>(0,0);</div><div class="line">	<span class="attribute">-webkit-filter</span>: <span class="built_in">url</span>(#gooey);</div><div class="line">	<span class="attribute">filter</span>: <span class="built_in">url</span>(#gooey)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.nose-af</span>,<span class="selector-class">.nose-be</span>,<span class="selector-class">.nose-mi</span> &#123;</div><div class="line">	<span class="attribute">transition</span>: <span class="number">1s</span>;</div><div class="line">	<span class="attribute">top</span>: <span class="number">55px</span>;</div><div class="line">	<span class="attribute">left</span>: <span class="number">0</span>;</div><div class="line">	<span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">	<span class="attribute">height</span>: <span class="number">100%</span>;</div><div class="line">	<span class="attribute">border-radius</span>: <span class="number">50%</span>;</div><div class="line">	<span class="attribute">background</span>: <span class="number">#88282A</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.nose-be</span> &#123;</div><div class="line">	<span class="attribute">-webkit-transform</span>: <span class="built_in">rotate</span>(-60deg);</div><div class="line">	<span class="attribute">transform</span>: <span class="built_in">rotate</span>(-60deg)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.nose-af</span> &#123;</div><div class="line">	<span class="attribute">-webkit-transform</span>: <span class="built_in">rotate</span>(60deg);</div><div class="line">	<span class="attribute">transform</span>: <span class="built_in">rotate</span>(60deg)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.nose</span><span class="selector-class">.nose-end</span> <span class="selector-class">.nose-mi</span> &#123;</div><div class="line">	<span class="attribute">left</span>: <span class="number">17px</span>;</div><div class="line">	<span class="attribute">top</span>: <span class="number">58px</span>;</div><div class="line">	<span class="attribute">width</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">height</span>: <span class="number">30px</span>;</div><div class="line">	<span class="attribute">border-radius</span>: <span class="number">40px</span> <span class="number">40px</span> <span class="number">80px</span> <span class="number">80px</span>/<span class="number">20px</span> <span class="number">20px</span> <span class="number">80px</span> <span class="number">80px</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.nose</span><span class="selector-class">.nose-end</span> <span class="selector-class">.nose-af</span>,<span class="selector-class">.nose</span><span class="selector-class">.nose-end</span> <span class="selector-class">.nose-be</span> &#123;</div><div class="line">	<span class="attribute">background</span>: <span class="number">0</span> <span class="number">0</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.nose-mor</span> <span class="selector-class">.nose-mi</span> &#123;</div><div class="line">	<span class="attribute">-webkit-animation</span>: gooey-mor-animate <span class="number">2s</span> ease-in-out .<span class="number">16s</span> forwards;</div><div class="line">	<span class="attribute">animation</span>: gooey-mor-animate <span class="number">2s</span> ease-in-out .<span class="number">16s</span> forwards</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.nose-mor</span> <span class="selector-class">.nose-be</span> &#123;</div><div class="line">	<span class="attribute">-webkit-animation</span>: gooey-mor-be-animate <span class="number">2s</span> ease-in-out forwards;</div><div class="line">	<span class="attribute">animation</span>: gooey-mor-be-animate <span class="number">2s</span> ease-in-out forwards</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.nose-mor</span> <span class="selector-class">.nose-af</span> &#123;</div><div class="line">	<span class="attribute">-webkit-animation</span>: gooey-mor-af-animate <span class="number">2s</span> ease-in-out .<span class="number">32s</span> forwards;</div><div class="line">	<span class="attribute">animation</span>: gooey-mor-af-animate <span class="number">2s</span> ease-in-out .<span class="number">32s</span> forwards</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.face</span> &#123;</div><div class="line">	<span class="attribute">transition</span>: <span class="number">1s</span>;</div><div class="line">	<span class="attribute">top</span>: <span class="number">17px</span>;</div><div class="line">	<span class="attribute">left</span>: -<span class="number">99px</span>;</div><div class="line">	<span class="attribute">width</span>: <span class="number">201px</span>;</div><div class="line">	<span class="attribute">height</span>: <span class="number">130px</span>;</div><div class="line">	<span class="attribute">border-radius</span>: <span class="number">50%</span>;</div><div class="line">	<span class="attribute">z-index</span>: <span class="number">5</span>;</div><div class="line">	<span class="attribute">background</span>: <span class="number">#F8F6E1</span>;</div><div class="line">	<span class="attribute">transform</span>: <span class="built_in">scale</span>(0,0)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.face-mor</span> &#123;</div><div class="line">	<span class="attribute">border-radius</span>: <span class="number">50%</span> <span class="number">50%</span> <span class="number">60%</span> <span class="number">60%</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.header</span> &#123;</div><div class="line">	<span class="attribute">-webkit-transition</span>: <span class="number">1s</span>;</div><div class="line">	<span class="attribute">transition</span>: <span class="number">1s</span>;</div><div class="line">	<span class="attribute">position</span>: absolute;</div><div class="line">	<span class="attribute">top</span>: -<span class="number">375px</span>;</div><div class="line">	<span class="attribute">left</span>: -<span class="number">335px</span>;</div><div class="line">	<span class="attribute">width</span>: <span class="number">666px</span>;</div><div class="line">	<span class="attribute">height</span>: <span class="number">550px</span>;</div><div class="line">	<span class="attribute">border-radius</span>: <span class="number">50%</span>/<span class="number">63%</span> <span class="number">63%</span> <span class="number">37%</span> <span class="number">37%</span>;</div><div class="line">	<span class="attribute">z-index</span>: <span class="number">2</span>;</div><div class="line">	<span class="attribute">background</span>: <span class="number">#E4B790</span>;</div><div class="line">	<span class="attribute">-webkit-transform</span>: <span class="built_in">scale</span>(0,0);</div><div class="line">	<span class="attribute">transform</span>: <span class="built_in">scale</span>(0,0)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.ear</span>,<span class="selector-class">.ear-hole</span>,<span class="selector-class">.ear-hole-mask</span>,<span class="selector-class">.eye</span> &#123;</div><div class="line">	<span class="attribute">border-radius</span>: <span class="number">50%</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.l-eye-wrap</span>,<span class="selector-class">.r-eye-wrap</span> &#123;</div><div class="line">	<span class="attribute">-webkit-transition</span>: <span class="number">2s</span>;</div><div class="line">	<span class="attribute">transition</span>: <span class="number">2s</span>;</div><div class="line">	<span class="attribute">z-index</span>: <span class="number">14</span>;</div><div class="line">	<span class="attribute">-webkit-transform</span>: <span class="built_in">translate</span>(15px,60px);</div><div class="line">	<span class="attribute">transform</span>: <span class="built_in">translate</span>(15px,60px)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.eye</span> &#123;</div><div class="line">	<span class="attribute">-webkit-transition</span>: <span class="number">1s</span>;</div><div class="line">	<span class="attribute">transition</span>: <span class="number">1s</span>;</div><div class="line">	<span class="attribute">background</span>: <span class="number">#88282A</span>;</div><div class="line">	<span class="attribute">width</span>: <span class="number">60px</span>;</div><div class="line">	<span class="attribute">height</span>: <span class="number">60px</span>;</div><div class="line">	<span class="attribute">z-index</span>: <span class="number">10</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.eye-be</span> &#123;</div><div class="line">	<span class="attribute">-webkit-transform</span>: <span class="built_in">rotate</span>(60deg);</div><div class="line">	<span class="attribute">transform</span>: <span class="built_in">rotate</span>(60deg)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.eye-af</span> &#123;</div><div class="line">	<span class="attribute">-webkit-transform</span>: <span class="built_in">rotate</span>(-60deg);</div><div class="line">	<span class="attribute">transform</span>: <span class="built_in">rotate</span>(-60deg)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.l-eye-wrap-mor</span> &#123;</div><div class="line">	<span class="attribute">-webkit-transform</span>: <span class="built_in">translate</span>(-115px,-41px);</div><div class="line">	<span class="attribute">transform</span>: <span class="built_in">translate</span>(-115px,-41px)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.r-eye-wrap-mor</span> &#123;</div><div class="line">	<span class="attribute">-webkit-transform</span>: <span class="built_in">translate</span>(136px,-41px);</div><div class="line">	<span class="attribute">transform</span>: <span class="built_in">translate</span>(136px,-41px)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.l-eye-wrap-mor</span> <span class="selector-class">.eye-mor</span>,<span class="selector-class">.r-eye-wrap-mor</span> <span class="selector-class">.eye-mor</span> &#123;</div><div class="line">	<span class="attribute">width</span>: <span class="number">51px</span>;</div><div class="line">	<span class="attribute">height</span>: <span class="number">58.75px</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.eye-mor</span> <span class="selector-class">.eye-mi</span> &#123;</div><div class="line">	<span class="attribute">-webkit-animation</span>: gooey-mor-animate <span class="number">2s</span> ease-in-out .<span class="number">16s</span> forwards;</div><div class="line">	<span class="attribute">animation</span>: gooey-mor-animate <span class="number">2s</span> ease-in-out .<span class="number">16s</span> forwards</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.eye-mor</span> <span class="selector-class">.eye-be</span> &#123;</div><div class="line">	<span class="attribute">-webkit-animation</span>: gooey-mor-be-animate <span class="number">2s</span> ease-in-out forwards;</div><div class="line">	<span class="attribute">animation</span>: gooey-mor-be-animate <span class="number">2s</span> ease-in-out forwards</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.eye-mor</span> <span class="selector-class">.eye-af</span> &#123;</div><div class="line">	<span class="attribute">-webkit-animation</span>: gooey-mor-af-animate <span class="number">2s</span> ease-in-out .<span class="number">32s</span> forwards;</div><div class="line">	<span class="attribute">animation</span>: gooey-mor-af-animate <span class="number">2s</span> ease-in-out .<span class="number">32s</span> forwards</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.l-eye-face</span>,<span class="selector-class">.r-eye-face</span> &#123;</div><div class="line">	<span class="attribute">top</span>: -<span class="number">49px</span>;</div><div class="line">	<span class="attribute">width</span>: <span class="number">135px</span>;</div><div class="line">	<span class="attribute">height</span>: <span class="number">154px</span>;</div><div class="line">	<span class="attribute">background</span>: <span class="number">#fff</span>;</div><div class="line">	<span class="attribute">border-radius</span>: <span class="number">50%</span>;</div><div class="line">	<span class="attribute">-webkit-transform</span>: <span class="built_in">scale</span>(0,0);</div><div class="line">	<span class="attribute">transform</span>: <span class="built_in">scale</span>(0,0);</div><div class="line">	<span class="attribute">opacity</span>: <span class="number">1</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.l-eye-face</span> &#123;</div><div class="line">	<span class="attribute">left</span>: -<span class="number">55px</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.r-eye-face</span> &#123;</div><div class="line">	<span class="attribute">left</span>: -<span class="number">29px</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.l-ear-wrap</span>,<span class="selector-class">.r-ear-wrap</span> &#123;</div><div class="line">	<span class="attribute">-webkit-transition</span>: <span class="number">3s</span>;</div><div class="line">	<span class="attribute">transition</span>: <span class="number">3s</span>;</div><div class="line">	<span class="attribute">-webkit-transform</span>: <span class="built_in">translate</span>(5px,5px);</div><div class="line">	<span class="attribute">transform</span>: <span class="built_in">translate</span>(5px,5px)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.l-ear-wrap-mor</span> &#123;</div><div class="line">	<span class="attribute">-webkit-transform</span>: <span class="built_in">translate</span>(-134px,-301px);</div><div class="line">	<span class="attribute">transform</span>: <span class="built_in">translate</span>(-134px,-301px)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.r-ear-wrap-mor</span> &#123;</div><div class="line">	<span class="attribute">-webkit-transform</span>: <span class="built_in">translate</span>(78px,-301px);</div><div class="line">	<span class="attribute">transform</span>: <span class="built_in">translate</span>(78px,-301px)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.l-ear</span> &#123;</div><div class="line">	<span class="attribute">-webkit-transform</span>: <span class="built_in">rotate</span>(49deg);</div><div class="line">	<span class="attribute">transform</span>: <span class="built_in">rotate</span>(49deg)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.r-ear</span> &#123;</div><div class="line">	<span class="attribute">-webkit-transform</span>: <span class="built_in">rotate</span>(-49deg);</div><div class="line">	<span class="attribute">transform</span>: <span class="built_in">rotate</span>(-49deg)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.ear</span> &#123;</div><div class="line">	<span class="attribute">-webkit-transition</span>: .<span class="number">5s</span>;</div><div class="line">	<span class="attribute">transition</span>: .<span class="number">5s</span>;</div><div class="line">	<span class="attribute">width</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">height</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">background</span>: <span class="number">#88282A</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.ear</span> <span class="selector-class">.l-ear-hole-mor</span> &#123;</div><div class="line">	<span class="attribute">-webkit-transform</span>: <span class="built_in">scale</span>(1,1) <span class="built_in">translate</span>(33px,33px);</div><div class="line">	<span class="attribute">transform</span>: <span class="built_in">scale</span>(1,1) <span class="built_in">translate</span>(33px,33px)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.ear</span> <span class="selector-class">.r-ear-hole-mor</span> &#123;</div><div class="line">	<span class="attribute">-webkit-transform</span>: <span class="built_in">scale</span>(1,1) <span class="built_in">translate</span>(16px,33px);</div><div class="line">	<span class="attribute">transform</span>: <span class="built_in">scale</span>(1,1) <span class="built_in">translate</span>(16px,33px)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.ear-mor</span> &#123;</div><div class="line">	<span class="attribute">width</span>: <span class="number">110px</span>;</div><div class="line">	<span class="attribute">height</span>: <span class="number">123px</span>;</div><div class="line">	<span class="attribute">background</span>: <span class="number">#E4B790</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.ear-hole</span> &#123;</div><div class="line">	<span class="attribute">-webkit-transition</span>: .<span class="number">5s</span>;</div><div class="line">	<span class="attribute">transition</span>: .<span class="number">5s</span>;</div><div class="line">	<span class="attribute">-webkit-transition-timing-function</span>: <span class="built_in">cubic-bezier</span>(.64,.57,.67,1.53);</div><div class="line">	<span class="attribute">transition-timing-function</span>: <span class="built_in">cubic-bezier</span>(.64,.57,.67,1.53);</div><div class="line">	<span class="attribute">width</span>: <span class="number">58px</span>;</div><div class="line">	<span class="attribute">height</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">background</span>: <span class="number">#F1D6BB</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.ear-hole</span> <span class="selector-class">.l-ear-hole-mor</span>,<span class="selector-class">.ear-hole</span> <span class="selector-class">.r-ear-hole-mor</span> &#123;</div><div class="line">	<span class="attribute">-webkit-transform</span>: <span class="built_in">scale</span>(1,1) <span class="built_in">translate</span>(33px,33px);</div><div class="line">	<span class="attribute">transform</span>: <span class="built_in">scale</span>(1,1) <span class="built_in">translate</span>(33px,33px)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.l-ear-hole</span> &#123;</div><div class="line">	<span class="attribute">-webkit-transform-origin</span>: <span class="number">140%</span> <span class="number">50%</span>;</div><div class="line">	<span class="attribute">transform-origin</span>: <span class="number">140%</span> <span class="number">50%</span>;</div><div class="line">	<span class="attribute">-webkit-transform</span>: <span class="built_in">scale</span>(0,1) <span class="built_in">translate</span>(33px,33px);</div><div class="line">	<span class="attribute">transform</span>: <span class="built_in">scale</span>(0,1) <span class="built_in">translate</span>(33px,33px)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.r-ear-hole</span> &#123;</div><div class="line">	<span class="attribute">-webkit-transform-origin</span>: <span class="number">20%</span> <span class="number">50%</span>;</div><div class="line">	<span class="attribute">transform-origin</span>: <span class="number">20%</span> <span class="number">50%</span>;</div><div class="line">	<span class="attribute">-webkit-transform</span>: <span class="built_in">scale</span>(0,1) <span class="built_in">translate</span>(16px,33px);</div><div class="line">	<span class="attribute">transform</span>: <span class="built_in">scale</span>(0,1) <span class="built_in">translate</span>(16px,33px)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.ear-hole-mask</span> &#123;</div><div class="line">	<span class="attribute">width</span>: <span class="number">21px</span>;</div><div class="line">	<span class="attribute">height</span>: <span class="number">65px</span>;</div><div class="line">	<span class="attribute">background</span>: <span class="number">#E4B790</span>;</div><div class="line">	<span class="attribute">opacity</span>: <span class="number">0</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.l-ear-hole-mask</span> &#123;</div><div class="line">	<span class="attribute">-webkit-transform</span>: <span class="built_in">translate</span>(77px,-25px);</div><div class="line">	<span class="attribute">transform</span>: <span class="built_in">translate</span>(77px,-25px)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.r-ear-hole-mask</span> &#123;</div><div class="line">	<span class="attribute">-webkit-transform</span>: <span class="built_in">translate</span>(11px,-25px);</div><div class="line">	<span class="attribute">transform</span>: <span class="built_in">translate</span>(11px,-25px)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.show</span> &#123;</div><div class="line">	<span class="attribute">-webkit-animation</span>: show-animate <span class="number">2s</span> ease forwards;</div><div class="line">	<span class="attribute">animation</span>: show-animate <span class="number">2s</span> ease forwards</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.op-show</span> &#123;</div><div class="line">	<span class="attribute">opacity</span>: <span class="number">1</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">@-<span class="keyword">webkit</span>-<span class="keyword">keyframes</span> gooey-mor-animate &#123;</div><div class="line">	25% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">scale</span>(.7,1.3);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">scale</span>(.7,1.3)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	50% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">scale</span>(.7,.7);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">scale</span>(.7,.7);</div><div class="line">		<span class="attribute">-webkit-animation-timing-function</span>: <span class="built_in">cubic-bezier</span>(.64,.57,.67,1.53);</div><div class="line">		<span class="attribute">animation-timing-function</span>: <span class="built_in">cubic-bezier</span>(.64,.57,.67,1.53)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	100% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">scale</span>(.85,.85);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">scale</span>(.85,.85)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@<span class="keyword">keyframes</span> gooey-mor-animate &#123;</div><div class="line">	25% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">scale</span>(.7,1.3);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">scale</span>(.7,1.3)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	50% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">scale</span>(.7,.7);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">scale</span>(.7,.7);</div><div class="line">		<span class="attribute">-webkit-animation-timing-function</span>: <span class="built_in">cubic-bezier</span>(.64,.57,.67,1.53);</div><div class="line">		<span class="attribute">animation-timing-function</span>: <span class="built_in">cubic-bezier</span>(.64,.57,.67,1.53)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	100% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">scale</span>(.85,.85);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">scale</span>(.85,.85)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@-<span class="keyword">webkit</span>-<span class="keyword">keyframes</span> gooey-mor-be-animate &#123;</div><div class="line">	30% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">rotate</span>(-60deg) <span class="built_in">scale</span>(.7,1.3);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">rotate</span>(-60deg) <span class="built_in">scale</span>(.7,1.3)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	45% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">rotate</span>(-60deg) <span class="built_in">scale</span>(.7,.7);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">rotate</span>(-60deg) <span class="built_in">scale</span>(.7,.7);</div><div class="line">		<span class="attribute">-webkit-animation-timing-function</span>: <span class="built_in">cubic-bezier</span>(.64,.57,.67,1.53);</div><div class="line">		<span class="attribute">animation-timing-function</span>: <span class="built_in">cubic-bezier</span>(.64,.57,.67,1.53)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	100% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">rotate</span>(-60deg) <span class="built_in">scale</span>(.85,.85);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">rotate</span>(-60deg) <span class="built_in">scale</span>(.85,.85)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@<span class="keyword">keyframes</span> gooey-mor-be-animate &#123;</div><div class="line">	30% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">rotate</span>(-60deg) <span class="built_in">scale</span>(.7,1.3);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">rotate</span>(-60deg) <span class="built_in">scale</span>(.7,1.3)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	45% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">rotate</span>(-60deg) <span class="built_in">scale</span>(.7,.7);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">rotate</span>(-60deg) <span class="built_in">scale</span>(.7,.7);</div><div class="line">		<span class="attribute">-webkit-animation-timing-function</span>: <span class="built_in">cubic-bezier</span>(.64,.57,.67,1.53);</div><div class="line">		<span class="attribute">animation-timing-function</span>: <span class="built_in">cubic-bezier</span>(.64,.57,.67,1.53)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	100% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">rotate</span>(-60deg) <span class="built_in">scale</span>(.85,.85);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">rotate</span>(-60deg) <span class="built_in">scale</span>(.85,.85)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@-<span class="keyword">webkit</span>-<span class="keyword">keyframes</span> gooey-mor-af-animate &#123;</div><div class="line">	30% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">rotate</span>(60deg) <span class="built_in">scale</span>(.7,1.3);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">rotate</span>(60deg) <span class="built_in">scale</span>(.7,1.3)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	45% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">rotate</span>(60deg) <span class="built_in">scale</span>(.9,.9);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">rotate</span>(60deg) <span class="built_in">scale</span>(.9,.9);</div><div class="line">		<span class="attribute">-webkit-animation-timing-function</span>: <span class="built_in">cubic-bezier</span>(.64,.57,.67,1.53);</div><div class="line">		<span class="attribute">animation-timing-function</span>: <span class="built_in">cubic-bezier</span>(.64,.57,.67,1.53)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	100% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">rotate</span>(60deg) <span class="built_in">scale</span>(.85,.85);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">rotate</span>(60deg) <span class="built_in">scale</span>(.85,.85)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@<span class="keyword">keyframes</span> gooey-mor-af-animate &#123;</div><div class="line">	30% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">rotate</span>(60deg) <span class="built_in">scale</span>(.7,1.3);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">rotate</span>(60deg) <span class="built_in">scale</span>(.7,1.3)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	45% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">rotate</span>(60deg) <span class="built_in">scale</span>(.9,.9);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">rotate</span>(60deg) <span class="built_in">scale</span>(.9,.9);</div><div class="line">		<span class="attribute">-webkit-animation-timing-function</span>: <span class="built_in">cubic-bezier</span>(.64,.57,.67,1.53);</div><div class="line">		<span class="attribute">animation-timing-function</span>: <span class="built_in">cubic-bezier</span>(.64,.57,.67,1.53)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	100% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">rotate</span>(60deg) <span class="built_in">scale</span>(.85,.85);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">rotate</span>(60deg) <span class="built_in">scale</span>(.85,.85)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@-<span class="keyword">webkit</span>-<span class="keyword">keyframes</span> show-animate &#123;</div><div class="line">	0% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(.7,0,0,0,0,.7,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(.7,0,0,0,0,.7,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">opacity</span>: <span class="number">0</span></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	3<span class="selector-class">.4</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(.795,0,0,0,0,.822,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(.795,0,0,0,0,.822,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	4<span class="selector-class">.7</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(.835,0,0,0,0,.88,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(.835,0,0,0,0,.88,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	6<span class="selector-class">.81</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(.898,0,0,0,0,.968,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(.898,0,0,0,0,.968,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	9<span class="selector-class">.41</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(.965,0,0,0,0,1.05,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(.965,0,0,0,0,1.05,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	10<span class="selector-class">.21</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(.982,0,0,0,0,1.068,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(.982,0,0,0,0,1.068,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	13<span class="selector-class">.61</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(1.037,0,0,0,0,1.1,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(1.037,0,0,0,0,1.1,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	14<span class="selector-class">.11</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(1.042,0,0,0,0,1.099,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(1.042,0,0,0,0,1.099,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	17<span class="selector-class">.52</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(1.062,0,0,0,0,1.072,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(1.062,0,0,0,0,1.072,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	18<span class="selector-class">.72</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(1.064,0,0,0,0,1.056,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(1.064,0,0,0,0,1.056,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	21<span class="selector-class">.32</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(1.059,0,0,0,0,1.021,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(1.059,0,0,0,0,1.021,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	24<span class="selector-class">.32</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(1.045,0,0,0,0,.988,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(1.045,0,0,0,0,.988,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	25<span class="selector-class">.23</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(1.04,0,0,0,0,.981,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(1.04,0,0,0,0,.981,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	29<span class="selector-class">.03</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(1.019,0,0,0,0,.969,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(1.019,0,0,0,0,.969,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	29<span class="selector-class">.93</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(1.014,0,0,0,0,.97,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(1.014,0,0,0,0,.97,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	35<span class="selector-class">.54</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(.994,0,0,0,0,.989,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(.994,0,0,0,0,.989,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	36<span class="selector-class">.74</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(.991,0,0,0,0,.994,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(.991,0,0,0,0,.994,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	41<span class="selector-class">.04</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(.988,0,0,0,0,1.007,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(.988,0,0,0,0,1.007,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	44<span class="selector-class">.44</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(.99,0,0,0,0,1.01,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(.99,0,0,0,0,1.01,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	52<span class="selector-class">.15</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(.997,0,0,0,0,1.002,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(.997,0,0,0,0,1.002,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	59<span class="selector-class">.86</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(1.002,0,0,0,0,.997,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(1.002,0,0,0,0,.997,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	63<span class="selector-class">.26</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(1.002,0,0,0,0,.998,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(1.002,0,0,0,0,.998,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	75<span class="selector-class">.28</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(1,0,0,0,0,1.001,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(1,0,0,0,0,1.001,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	100%,85<span class="selector-class">.49</span>%,90<span class="selector-class">.69</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	100% &#123;</div><div class="line">		<span class="attribute">opacity</span>: <span class="number">1</span></div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@<span class="keyword">keyframes</span> show-animate &#123;</div><div class="line">	0% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(.7,0,0,0,0,.7,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(.7,0,0,0,0,.7,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">opacity</span>: <span class="number">0</span></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	3<span class="selector-class">.4</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(.795,0,0,0,0,.822,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(.795,0,0,0,0,.822,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	4<span class="selector-class">.7</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(.835,0,0,0,0,.88,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(.835,0,0,0,0,.88,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	6<span class="selector-class">.81</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(.898,0,0,0,0,.968,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(.898,0,0,0,0,.968,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	9<span class="selector-class">.41</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(.965,0,0,0,0,1.05,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(.965,0,0,0,0,1.05,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	10<span class="selector-class">.21</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(.982,0,0,0,0,1.068,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(.982,0,0,0,0,1.068,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	13<span class="selector-class">.61</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(1.037,0,0,0,0,1.1,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(1.037,0,0,0,0,1.1,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	14<span class="selector-class">.11</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(1.042,0,0,0,0,1.099,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(1.042,0,0,0,0,1.099,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	17<span class="selector-class">.52</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(1.062,0,0,0,0,1.072,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(1.062,0,0,0,0,1.072,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	18<span class="selector-class">.72</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(1.064,0,0,0,0,1.056,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(1.064,0,0,0,0,1.056,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	21<span class="selector-class">.32</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(1.059,0,0,0,0,1.021,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(1.059,0,0,0,0,1.021,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	24<span class="selector-class">.32</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(1.045,0,0,0,0,.988,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(1.045,0,0,0,0,.988,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	25<span class="selector-class">.23</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(1.04,0,0,0,0,.981,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(1.04,0,0,0,0,.981,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	29<span class="selector-class">.03</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(1.019,0,0,0,0,.969,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(1.019,0,0,0,0,.969,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	29<span class="selector-class">.93</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(1.014,0,0,0,0,.97,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(1.014,0,0,0,0,.97,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	35<span class="selector-class">.54</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(.994,0,0,0,0,.989,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(.994,0,0,0,0,.989,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	36<span class="selector-class">.74</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(.991,0,0,0,0,.994,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(.991,0,0,0,0,.994,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	41<span class="selector-class">.04</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(.988,0,0,0,0,1.007,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(.988,0,0,0,0,1.007,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	44<span class="selector-class">.44</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(.99,0,0,0,0,1.01,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(.99,0,0,0,0,1.01,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	52<span class="selector-class">.15</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(.997,0,0,0,0,1.002,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(.997,0,0,0,0,1.002,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	59<span class="selector-class">.86</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(1.002,0,0,0,0,.997,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(1.002,0,0,0,0,.997,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	63<span class="selector-class">.26</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(1.002,0,0,0,0,.998,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(1.002,0,0,0,0,.998,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	75<span class="selector-class">.28</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(1,0,0,0,0,1.001,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(1,0,0,0,0,1.001,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	100%,85<span class="selector-class">.49</span>%,90<span class="selector-class">.69</span>% &#123;</div><div class="line">		<span class="attribute">-webkit-transform</span>: <span class="built_in">matrix3d</span>(1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1);</div><div class="line">		<span class="attribute">transform</span>: <span class="built_in">matrix3d</span>(1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	100% &#123;</div><div class="line">		<span class="attribute">opacity</span>: <span class="number">1</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="JavaScript代码"><a href="#JavaScript代码" class="headerlink" title="JavaScript代码"></a>JavaScript代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> yang = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="keyword">let</span> oNose = $(<span class="string">'.nose'</span>);</div><div class="line">	<span class="keyword">let</span> oHeader = $(<span class="string">'.header'</span>);</div><div class="line">	<span class="keyword">let</span> oFace = $(<span class="string">'.face'</span>);</div><div class="line">	<span class="keyword">let</span> oLeyeWrap = $(<span class="string">'.l-eye-wrap'</span>);</div><div class="line">	<span class="keyword">let</span> oLeyeFace = $(<span class="string">'.l-eye-face'</span>, oLeyeWrap);</div><div class="line">	<span class="keyword">let</span> oReyeWrap = $(<span class="string">'.r-eye-wrap'</span>);</div><div class="line">	<span class="keyword">let</span> oReyeFace = $(<span class="string">'.r-eye-face'</span>, oReyeWrap);</div><div class="line">	<span class="keyword">let</span> oLearWrap = $(<span class="string">'.l-ear-wrap'</span>);</div><div class="line">	<span class="keyword">let</span> oRearWrap = $(<span class="string">'.r-ear-wrap'</span>);</div><div class="line">	<span class="keyword">let</span> oLear     = $(<span class="string">'.l-ear'</span>);</div><div class="line">	<span class="keyword">let</span> oRear     = $(<span class="string">'.r-ear'</span>);</div><div class="line">	<span class="keyword">let</span> oLearHole = $(<span class="string">'.l-ear-hole'</span>);</div><div class="line">	<span class="keyword">let</span> oRearHole = $(<span class="string">'.r-ear-hole'</span>);</div><div class="line">	<span class="keyword">let</span> oMasks    = $$(<span class="string">'.ear-hole-mask'</span>);</div><div class="line">	<span class="keyword">let</span> oEyes     = $$(<span class="string">'.eye'</span>);</div><div class="line">	<span class="keyword">let</span> oEars     = $$(<span class="string">'.ear'</span>);</div><div class="line">	<span class="keyword">let</span> oEarHole  = $$(<span class="string">'.ear-hole'</span>);</div><div class="line"></div><div class="line">	<span class="keyword">let</span> Process = <span class="built_in">Promise</span>.resolve();</div><div class="line"></div><div class="line">	Process.then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">		<span class="comment">// 鼻子先显现出来</span></div><div class="line">		oNose.classList.add(<span class="string">'show'</span>);</div><div class="line">		<span class="keyword">return</span> Sleep(<span class="number">600</span>); <span class="comment">// 600ms 后进行第二步操作</span></div><div class="line">	&#125;)</div><div class="line">	.then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">		<span class="comment">// 熊嘴脸显现出来</span></div><div class="line">		oFace.classList.add(<span class="string">'show'</span>);</div><div class="line">		<span class="keyword">return</span> Sleep(<span class="number">600</span>); <span class="comment">// 600ms 后进行第三步操作</span></div><div class="line">	&#125;)</div><div class="line">	.then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">		<span class="comment">// 嘴脸略微变化，同时头部显现</span></div><div class="line">		oFace.classList.add(<span class="string">'face-mor'</span>);</div><div class="line">		oHeader.classList.add(<span class="string">'show'</span>);</div><div class="line">		<span class="keyword">return</span> Sleep(<span class="number">600</span>); <span class="comment">// 600ms 后进行第四步操作</span></div><div class="line">	&#125;)</div><div class="line">	.then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">		<span class="comment">// 鼻子动画开始动，同时两眼分别从两个方向移动</span></div><div class="line">		oNose.classList.add(<span class="string">'nose-mor'</span>);</div><div class="line">		oLeyeWrap.classList.add(<span class="string">'l-eye-wrap-mor'</span>);</div><div class="line">		oReyeWrap.classList.add(<span class="string">'r-eye-wrap-mor'</span>);</div><div class="line">		<span class="keyword">return</span> Sleep(<span class="number">300</span>); <span class="comment">// 300ms 后进行第五步操作</span></div><div class="line">	&#125;)</div><div class="line">	.then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">		<span class="comment">// 鼻子运动为最终形态</span></div><div class="line">		oNose.classList.add(<span class="string">'nose-end'</span>);</div><div class="line">		<span class="keyword">return</span> Sleep(<span class="number">900</span>); <span class="comment">// 900ms 后进行第六步操作</span></div><div class="line">	&#125;)</div><div class="line">	.then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">		<span class="comment">// 两只眼睛开始运动</span></div><div class="line">		oLeyeWrap.classList.add(<span class="string">'eye-mor'</span>);</div><div class="line">		oReyeWrap.classList.add(<span class="string">'eye-mor'</span>);</div><div class="line">		<span class="keyword">return</span> Sleep(<span class="number">600</span>); <span class="comment">// 600ms 后进行第七步操作</span></div><div class="line">	&#125;)</div><div class="line">	.then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">		<span class="comment">// 两只耳朵开始从眼睛中移动出来</span></div><div class="line">		oLearWrap.classList.add(<span class="string">'l-ear-wrap-mor'</span>);</div><div class="line">		oRearWrap.classList.add(<span class="string">'r-ear-wrap-mor'</span>);</div><div class="line">		<span class="keyword">return</span> Sleep(<span class="number">1000</span>); <span class="comment">// 1000ms 后进行第八步操作</span></div><div class="line">	&#125;)</div><div class="line">	.then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">		<span class="comment">// 两只耳朵开始形变</span></div><div class="line">		oLear.classList.add(<span class="string">'ear-mor'</span>);</div><div class="line">		oRear.classList.add(<span class="string">'ear-mor'</span>);</div><div class="line">		<span class="keyword">return</span> Sleep(<span class="number">1800</span>); <span class="comment">// 1800ms 后进行第九步操作</span></div><div class="line">	&#125;)</div><div class="line">	.then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">		<span class="comment">// 让耳洞部分的遮挡物显现</span></div><div class="line">		[].forEach.call(oMasks, (t) =&gt; t.classList.add(<span class="string">'op-show'</span>));</div><div class="line">		<span class="keyword">return</span> Sleep(<span class="number">100</span>); <span class="comment">// 100ms 后进行第十步操作</span></div><div class="line">	&#125;)</div><div class="line">	.then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">		<span class="comment">// 两只眼脸和耳洞同时变化</span></div><div class="line">		oLeyeFace.classList.add(<span class="string">'show'</span>);</div><div class="line">		oReyeFace.classList.add(<span class="string">'show'</span>);</div><div class="line">		oLearHole.classList.add(<span class="string">'l-ear-hole-mor'</span>);</div><div class="line">		oRearHole.classList.add(<span class="string">'r-ear-hole-mor'</span>);</div><div class="line">		<span class="keyword">return</span> Sleep(<span class="number">800</span>); <span class="comment">// 800ms 后进行第三步操作</span></div><div class="line">	&#125;)</div><div class="line">	.then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">		<span class="comment">// 运动完毕，将所有的transition 清除，保证缩放的时候不会露馅儿~</span></div><div class="line">		[].forEach.call(oEyes, (t) =&gt; &#123;</div><div class="line">			t.style.transition = <span class="string">'0s'</span>;</div><div class="line">		&#125;);</div><div class="line"></div><div class="line">		[].forEach.call(oEars, (t) =&gt; &#123;</div><div class="line">			t.style.transition = <span class="string">'0s'</span>;</div><div class="line">		&#125;);</div><div class="line"></div><div class="line">		[].forEach.call(oEarHole, (t) =&gt; &#123;</div><div class="line">			t.style.transition = <span class="string">'0s'</span>;</div><div class="line">		&#125;)</div><div class="line"></div><div class="line">		oLeyeWrap.style.transition = <span class="string">'0s'</span>;</div><div class="line">		oReyeWrap.style.transition = <span class="string">'0s'</span>;</div><div class="line">		oFace.style.transition = <span class="string">'0s'</span>;</div><div class="line">		oLearWrap.style.transition = <span class="string">'0s'</span>;</div><div class="line">		oRearWrap.style.transition = <span class="string">'0s'</span>;</div><div class="line">	&#125;)</div><div class="line">&#125;()</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">$</span>(<span class="params">v, d</span>) </span>&#123;</div><div class="line">	d = d || <span class="built_in">document</span>;</div><div class="line">	<span class="keyword">return</span> d.querySelector(v);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">$$</span>(<span class="params">v, d</span>) </span>&#123;</div><div class="line">	d = d || <span class="built_in">document</span>;</div><div class="line">	<span class="keyword">return</span> d.querySelectorAll(v);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Sleep</span>(<span class="params">timeout</span>) </span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</div><div class="line">		setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">			resolve();</div><div class="line">		&#125;, timeout);</div><div class="line">	&#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><a href="https://52yang.github.io/熊.html" title="熊" target="_blank" rel="external">展示效果</a></p>
-<p>一个小小的分享是个大大的进步 ^__^</p>
-
-          
+          做前端的同学对HTML5中svg标签，CSS3中的csstransform效果，ES6中的箭头函数 =&gt;肯定不陌生，做一只萌萌哒的小熊动画，现在开始吧！
+HML代码12345678910111213141516171819202122232425262728293031323334353637
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/24/CSS3与JavaScript做梦熊/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -471,7 +495,10 @@
       
     </div>
 
+
     <footer class="post-footer">
+      
+
       
 
       
@@ -488,13 +515,26 @@
       
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://ouuo.bid/2017/02/24/这是一个模版/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Yang">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/love.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Yang's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Yang's Blog" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -516,13 +556,21 @@
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-24T14:51:09+08:00" content="2017-02-24">
-              2017-02-24
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-24T14:51:09+08:00">
+                2017-02-24
+              </time>
+            
+
+            
+
+            
           </span>
 
           
@@ -532,20 +580,14 @@
           
 
           
-
-          
-          
-             <span id="/2017/02/24/这是一个模版/" class="leancloud_visitors" data-flag-title="canvas+JavaScript打造的简单的效果">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
@@ -559,13 +601,17 @@
       
         
           
-            <h3 id="HTML代码"><a href="#HTML代码" class="headerlink" title="HTML代码"></a>HTML代码</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"canvas"</span> <span class="attr">class</span>=<span class="string">"canvas"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="CSS代码"><a href="#CSS代码" class="headerlink" title="CSS代码"></a>CSS代码</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.canvas</span>&#123;<span class="attribute">position</span>: fixed;<span class="attribute">z-index</span>: -<span class="number">1</span>;&#125;</div></pre></td></tr></table></figure>
-<h3 id="JavaScript代码"><a href="#JavaScript代码" class="headerlink" title="JavaScript代码"></a>JavaScript代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">'canvas'</span>),</div><div class="line">    ctx = canvas.getContext(<span class="string">'2d'</span>),</div><div class="line">    width = <span class="built_in">window</span>.innerWidth,</div><div class="line">    height = <span class="built_in">window</span>.innerHeight,</div><div class="line">    nodes,</div><div class="line">    lines,</div><div class="line">    mouse = &#123;</div><div class="line">        <span class="attr">x</span>: width / <span class="number">2</span>,</div><div class="line">        <span class="attr">y</span>: height / <span class="number">2</span></div><div class="line">    &#125;;</div><div class="line"></div><div class="line">canvas.width = width;</div><div class="line">canvas.height = height;</div><div class="line"></div><div class="line"><span class="keyword">const</span> iniNode = <span class="function">(<span class="params">node, factor</span>) =&gt;</span> &#123;</div><div class="line">    <span class="keyword">let</span> rnd = <span class="function"><span class="params">()</span>=&gt;</span> &#123;</div><div class="line">        <span class="keyword">let</span> num = <span class="built_in">Math</span>.random() - <span class="number">0.5</span>;</div><div class="line">        <span class="keyword">if</span> (<span class="built_in">Math</span>.abs(num) &gt; <span class="number">0.4</span>) &#123;</div><div class="line">            <span class="keyword">return</span> num</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">return</span> rnd()</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    node.vx = factor * rnd();</div><div class="line">    node.vy = factor * rnd();</div><div class="line">    node.period = <span class="built_in">Math</span>.random() * <span class="number">120</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">const</span> createNodes = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">    nodes = [];</div><div class="line">    lines = [];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">50</span>; i++) &#123;</div><div class="line"></div><div class="line">        <span class="keyword">let</span> R = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">100</span>) + <span class="number">155</span>,</div><div class="line">            G = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">100</span>) + <span class="number">155</span>,</div><div class="line">            B = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">100</span>) + <span class="number">155</span>,</div><div class="line">            color = <span class="string">"rgb("</span> + R + <span class="string">","</span> + G + <span class="string">","</span> + B + <span class="string">")"</span>;</div><div class="line"></div><div class="line">        <span class="keyword">let</span> node = &#123;</div><div class="line">            <span class="attr">x</span>: (<span class="built_in">Math</span>.random() - <span class="number">0.5</span>) * <span class="number">300</span> + mouse.x,</div><div class="line">            <span class="attr">y</span>: (<span class="built_in">Math</span>.random() - <span class="number">0.5</span>) * <span class="number">300</span> + mouse.y,</div><div class="line">            <span class="attr">radius</span>: <span class="number">2</span> * <span class="built_in">Math</span>.random() + <span class="number">1</span>,</div><div class="line">            color,</div><div class="line">        &#125;</div><div class="line">        iniNode(node, <span class="number">2</span>);</div><div class="line">        nodes.push(node);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    nodes.forEach(<span class="function">(<span class="params">node1, index</span>) =&gt;</span> &#123;</div><div class="line">        nodes.slice(index + <span class="number">1</span>).forEach(<span class="function">(<span class="params">node2</span>) =&gt;</span> &#123;</div><div class="line">            lines.push(&#123;</div><div class="line">                <span class="attr">from</span>: node1,</div><div class="line">                <span class="attr">to</span>: node2</div><div class="line">            &#125;);</div><div class="line">        &#125;);</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> render = <span class="function">(<span class="params">ctx</span>) =&gt;</span> &#123;</div><div class="line">    ctx.fillStyle = <span class="string">'rgba(255,255,255,0.1)'</span>;</div><div class="line">    ctx.clearRect(<span class="number">0</span>, <span class="number">0</span>, width, height);</div><div class="line">    lines.forEach(<span class="function">(<span class="params">&#123;<span class="keyword">from</span>, to&#125;</span>) =&gt;</span> &#123;</div><div class="line">        <span class="keyword">let</span> lineLength = <span class="built_in">Math</span>.pow((<span class="keyword">from</span>.x - to.x), <span class="number">2</span>) + <span class="built_in">Math</span>.pow((<span class="keyword">from</span>.y - to.y), <span class="number">2</span>),</div><div class="line">            limit = <span class="number">10000</span>,</div><div class="line">            factor = <span class="number">1</span> - lineLength / limit;</div><div class="line">        <span class="keyword">if</span> (lineLength &gt; limit) &#123;</div><div class="line">            <span class="keyword">return</span></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        ctx.lineWidth = factor;</div><div class="line">        ctx.globalAlpha = factor;</div><div class="line">        ctx.strokeStyle = <span class="keyword">from</span>.color;</div><div class="line"></div><div class="line">        ctx.beginPath();</div><div class="line">        ctx.moveTo(<span class="keyword">from</span>.x, <span class="keyword">from</span>.y);</div><div class="line">        ctx.lineTo(to.x, to.y);</div><div class="line">        ctx.stroke();</div><div class="line">    &#125;);</div><div class="line">    ctx.globalAlpha = <span class="number">1</span>;</div><div class="line"></div><div class="line">    nodes.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">&#123;x, y, radius, color,&#125;</span>) </span>&#123;</div><div class="line">        ctx.fillStyle = color;</div><div class="line">        ctx.beginPath();</div><div class="line">        ctx.arc(x, y, radius, <span class="number">0</span>, <span class="number">2</span> * <span class="built_in">Math</span>.PI);</div><div class="line">        ctx.fill();</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="keyword">let</span> x = mouse.x,</div><div class="line">        y = mouse.y,</div><div class="line">        gradient = ctx.createRadialGradient(x, y, <span class="number">1</span>, x, y, <span class="number">200</span>);</div><div class="line"></div><div class="line">    gradient.addColorStop(<span class="number">0</span>, <span class="string">'rgba(255,255,255,0)'</span>);</div><div class="line">    gradient.addColorStop(<span class="number">1</span>, <span class="string">'rgba(255,255,255,1)'</span>);</div><div class="line">    ctx.fillStyle = gradient;</div><div class="line">    ctx.arc(x, y, <span class="number">360</span>, <span class="number">0</span>, <span class="number">2</span> * <span class="built_in">Math</span>.PI);</div><div class="line">    ctx.fill();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> animation = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">    <span class="keyword">const</span> invert = <span class="function">(<span class="params">node, dir</span>) =&gt;</span> node[dir] = mouse[dir];</div><div class="line">    nodes.forEach(<span class="function">(<span class="params">node</span>) =&gt;</span> &#123;</div><div class="line">            <span class="built_in">Math</span>.abs(node.x - mouse.x) &gt; <span class="number">250</span> &amp;&amp; invert(node, <span class="string">'x'</span>);</div><div class="line">            <span class="built_in">Math</span>.abs(node.y - mouse.y) &gt; <span class="number">250</span> &amp;&amp; invert(node, <span class="string">'y'</span>);</div><div class="line">            node.period--;</div><div class="line">            <span class="keyword">switch</span> (<span class="literal">true</span>) &#123;</div><div class="line">                <span class="keyword">case</span> node.period &lt; <span class="number">0</span>:</div><div class="line">                    iniNode(node, <span class="number">2</span>);</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> node.period &lt; <span class="number">50</span>:</div><div class="line">                    <span class="keyword">let</span> factor1 = (node.period / <span class="number">50</span> );</div><div class="line">                    node.x += node.vx * factor1;</div><div class="line">                    node.y += node.vy * factor1;</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> node.period &lt; <span class="number">80</span>:</div><div class="line">                    node.x += node.vx;</div><div class="line">                    node.y += node.vy;</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> node.period &lt; <span class="number">120</span>:</div><div class="line">                    <span class="keyword">let</span> factor2 = (<span class="number">1</span> - (node.period - <span class="number">40</span>) / <span class="number">80</span> );</div><div class="line">                    node.x += node.vx * factor2;</div><div class="line">                    node.y += node.vy * factor2;</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">default</span>:</div><div class="line">                    <span class="keyword">return</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    )</div><div class="line">    render(ctx);</div><div class="line">    requestAnimationFrame(animation);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'mousemove'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</div><div class="line">    <span class="keyword">let</span> x = event.clientX,</div><div class="line">        y = event.clientY,</div><div class="line">        offsetX = x - mouse.x,</div><div class="line">        offsetY = y - mouse.y;</div><div class="line">    <span class="keyword">if</span> (<span class="built_in">Math</span>.pow(offsetX, <span class="number">2</span>) + <span class="built_in">Math</span>.pow(offsetY, <span class="number">2</span>) &gt; <span class="number">100</span>) &#123;</div><div class="line">        mouse.x = x;</div><div class="line">        mouse.y = y;</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line">createNodes();</div><div class="line">render(ctx);</div><div class="line">animation();</div></pre></td></tr></table></figure>
-<p><a href="https://52yang.github.io/canvas.html" title="canvas" target="_blank" rel="external">展示效果</a></p>
-<p>我只是写代码的^_^</p>
-
-          
+          HTML代码1&lt;canvas id="canvas" class="canvas"&gt;&lt;/canvas&gt;
+CSS代码1.canvas&#123;position: fixed;z-index: -1;&#125;
+JavaScript代码12345678910111213141
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/24/这是一个模版/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -578,7 +624,10 @@
       
     </div>
 
+
     <footer class="post-footer">
+      
+
       
 
       
@@ -595,13 +644,26 @@
       
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://ouuo.bid/2017/02/24/第一篇文章/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Yang">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/love.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Yang's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Yang's Blog" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -623,13 +685,21 @@
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-24T13:12:07+08:00" content="2017-02-24">
-              2017-02-24
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-24T13:12:07+08:00">
+                2017-02-24
+              </time>
+            
+
+            
+
+            
           </span>
 
           
@@ -639,20 +709,14 @@
           
 
           
-
-          
-          
-             <span id="/2017/02/24/第一篇文章/" class="leancloud_visitors" data-flag-title="诗词歌赋">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
@@ -666,10 +730,17 @@
       
         
           
-            <p>滴不尽，相思血泪抛红豆；<br>开不完，春柳春花满画楼</p>
-<p>入我相思门，知我相思苦；<br>长相思兮长相忆，短相思兮无穷极</p>
+          滴不尽，相思血泪抛红豆；开不完，春柳春花满画楼
+入我相思门，知我相思苦；长相思兮长相忆，短相思兮无穷极
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/24/第一篇文章/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -682,7 +753,10 @@
       
     </div>
 
+
     <footer class="post-footer">
+      
+
       
 
       
@@ -704,13 +778,12 @@
   </nav>
 
 
-
+          
           </div>
           
 
 
           
-
         </div>
         
           
@@ -730,21 +803,26 @@
 
       
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/love.jpg"
                alt="Yang" />
           <p class="site-author-name" itemprop="name">Yang</p>
-          <p class="site-description motion-element" itemprop="description">晚上少吃点？</p>
+           
+              <p class="site-description motion-element" itemprop="description">晚上少吃点？</p>
+          
         </div>
         <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">14</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
 
           
 
@@ -771,7 +849,12 @@
         
         
 
+        
+
+
       </section>
+
+      
 
       
 
@@ -787,7 +870,7 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy;  2015 - 
+  &copy; 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -795,42 +878,35 @@
   <span class="author" itemprop="copyrightHolder">Yang</span>
 </div>
 
-<div class="powered-by">
-  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
-</div>
 
+
+<!--
 <div class="powered-by">
-   鲁ICP备15013969号
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
-  Clone theme -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next/">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Pisces
   </a>
 </div>
+-->
+
 
         
-
-<div class="busuanzi-count">
-
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-
-  
-  
-</div>
-
-
 
         
       </div>
     </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
   </div>
 
   
@@ -853,54 +929,51 @@
 
 
 
-  
-  <script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
 
   
-  <script type="text/javascript" src="//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="//cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="//cdn.bootcss.com/velocity/1.2.3/velocity.min.js"></script>
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="//cdn.bootcss.com/velocity/1.2.3/velocity.ui.min.js"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
-
-
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
-
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
 
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
 
 
 
   
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
 
 
 
@@ -909,134 +982,45 @@
 
 
   
-  
-  
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-  </script>
 
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-      for (i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-      }
-    });
-  </script>
-  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+	
+
+
+
 
 
   
 
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script>AV.initialize("HfEUHBkxIxPKFFWsM8E29K81-gzGzoHsz", "j8gTHCF5cxmeGRbV0QIujeUw");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
 
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
 
 
 
   
-<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
-</script>
 
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
 
 </body>
 </html>

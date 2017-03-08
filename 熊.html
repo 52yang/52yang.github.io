@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<style type="text/css">
+.face,.nose {
+	-webkit-transform: scale(0,0)
+}
+
+.face,.nose-af,.nose-be,.nose-mi {
+	-webkit-transition: 1s;
+	position: absolute
+}
+
+.ear,.eye,.face,.l-ear-wrap,.l-eye-face,.l-eye-wrap,.main,.nose,.nose-af,.nose-be,.nose-mi,.r-ear-wrap,.r-eye-face,.r-eye-wrap {
+	position: absolute
+}
+
+* {
+	box-sizing: border-box
+}
+
+body,html {
+	height: 100%
+}
+
+body {
+	margin: 0;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-flow: column wrap;
+	flex-flow: column wrap;
+	background: #E74C3C
+}
+
+.main {
+	top: 68%;
+	left: 50%
+}
+
+.nose {
+	top: 50%;
+	left: 50%;
+	margin-left: -40px;
+	margin-top: -30px;
+	width: 80px;
+	height: 80px;
+	z-index: 10;
+	transform: scale(0,0);
+	-webkit-filter: url(#gooey);
+	filter: url(#gooey)
+}
+
+.nose-af,.nose-be,.nose-mi {
+	transition: 1s;
+	top: 55px;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	background: #88282A
+}
+
+.nose-be {
+	-webkit-transform: rotate(-60deg);
+	transform: rotate(-60deg)
+}
+
+.nose-af {
+	-webkit-transform: rotate(60deg);
+	transform: rotate(60deg)
+}
+
+.nose.nose-end .nose-mi {
+	left: 17px;
+	top: 58px;
+	width: 50px;
+	height: 30px;
+	border-radius: 40px 40px 80px 80px/20px 20px 80px 80px
+}
+
+.nose.nose-end .nose-af,.nose.nose-end .nose-be {
+	background: 0 0
+}
+
+.nose-mor .nose-mi {
+	-webkit-animation: gooey-mor-animate 2s ease-in-out .16s forwards;
+	animation: gooey-mor-animate 2s ease-in-out .16s forwards
+}
+
+.nose-mor .nose-be {
+	-webkit-animation: gooey-mor-be-animate 2s ease-in-out forwards;
+	animation: gooey-mor-be-animate 2s ease-in-out forwards
+}
+
+.nose-mor .nose-af {
+	-webkit-animation: gooey-mor-af-animate 2s ease-in-out .32s forwards;
+	animation: gooey-mor-af-animate 2s ease-in-out .32s forwards
+}
+
+.face {
+	transition: 1s;
+	top: 17px;
+	left: -99px;
+	width: 201px;
+	height: 130px;
+	border-radius: 50%;
+	z-index: 5;
+	background: #F8F6E1;
+	transform: scale(0,0)
+}
+
+.face-mor {
+	border-radius: 50% 50% 60% 60%
+}
+
+.header {
+	-webkit-transition: 1s;
+	transition: 1s;
+	position: absolute;
+	top: -375px;
+	left: -335px;
+	width: 666px;
+	height: 550px;
+	border-radius: 50%/63% 63% 37% 37%;
+	z-index: 2;
+	background: #E4B790;
+	-webkit-transform: scale(0,0);
+	transform: scale(0,0)
+}
+
+.ear,.ear-hole,.ear-hole-mask,.eye {
+	border-radius: 50%
+}
+
+.l-eye-wrap,.r-eye-wrap {
+	-webkit-transition: 2s;
+	transition: 2s;
+	z-index: 14;
+	-webkit-transform: translate(15px,60px);
+	transform: translate(15px,60px)
+}
+
+.eye {
+	-webkit-transition: 1s;
+	transition: 1s;
+	background: #88282A;
+	width: 60px;
+	height: 60px;
+	z-index: 10
+}
+
+.eye-be {
+	-webkit-transform: rotate(60deg);
+	transform: rotate(60deg)
+}
+
+.eye-af {
+	-webkit-transform: rotate(-60deg);
+	transform: rotate(-60deg)
+}
+
+.l-eye-wrap-mor {
+	-webkit-transform: translate(-115px,-41px);
+	transform: translate(-115px,-41px)
+}
+
+.r-eye-wrap-mor {
+	-webkit-transform: translate(136px,-41px);
+	transform: translate(136px,-41px)
+}
+
+.l-eye-wrap-mor .eye-mor,.r-eye-wrap-mor .eye-mor {
+	width: 51px;
+	height: 58.75px
+}
+
+.eye-mor .eye-mi {
+	-webkit-animation: gooey-mor-animate 2s ease-in-out .16s forwards;
+	animation: gooey-mor-animate 2s ease-in-out .16s forwards
+}
+
+.eye-mor .eye-be {
+	-webkit-animation: gooey-mor-be-animate 2s ease-in-out forwards;
+	animation: gooey-mor-be-animate 2s ease-in-out forwards
+}
+
+.eye-mor .eye-af {
+	-webkit-animation: gooey-mor-af-animate 2s ease-in-out .32s forwards;
+	animation: gooey-mor-af-animate 2s ease-in-out .32s forwards
+}
+
+.l-eye-face,.r-eye-face {
+	top: -49px;
+	width: 135px;
+	height: 154px;
+	background: #fff;
+	border-radius: 50%;
+	-webkit-transform: scale(0,0);
+	transform: scale(0,0);
+	opacity: 1
+}
+
+.l-eye-face {
+	left: -55px
+}
+
+.r-eye-face {
+	left: -29px
+}
+
+.l-ear-wrap,.r-ear-wrap {
+	-webkit-transition: 3s;
+	transition: 3s;
+	-webkit-transform: translate(5px,5px);
+	transform: translate(5px,5px)
+}
+
+.l-ear-wrap-mor {
+	-webkit-transform: translate(-134px,-301px);
+	transform: translate(-134px,-301px)
+}
+
+.r-ear-wrap-mor {
+	-webkit-transform: translate(78px,-301px);
+	transform: translate(78px,-301px)
+}
+
+.l-ear {
+	-webkit-transform: rotate(49deg);
+	transform: rotate(49deg)
+}
+
+.r-ear {
+	-webkit-transform: rotate(-49deg);
+	transform: rotate(-49deg)
+}
+
+.ear {
+	-webkit-transition: .5s;
+	transition: .5s;
+	width: 50px;
+	height: 50px;
+	background: #88282A
+}
+
+.ear .l-ear-hole-mor {
+	-webkit-transform: scale(1,1) translate(33px,33px);
+	transform: scale(1,1) translate(33px,33px)
+}
+
+.ear .r-ear-hole-mor {
+	-webkit-transform: scale(1,1) translate(16px,33px);
+	transform: scale(1,1) translate(16px,33px)
+}
+
+.ear-mor {
+	width: 110px;
+	height: 123px;
+	background: #E4B790
+}
+
+.ear-hole {
+	-webkit-transition: .5s;
+	transition: .5s;
+	-webkit-transition-timing-function: cubic-bezier(.64,.57,.67,1.53);
+	transition-timing-function: cubic-bezier(.64,.57,.67,1.53);
+	width: 58px;
+	height: 50px;
+	background: #F1D6BB
+}
+
+.ear-hole .l-ear-hole-mor,.ear-hole .r-ear-hole-mor {
+	-webkit-transform: scale(1,1) translate(33px,33px);
+	transform: scale(1,1) translate(33px,33px)
+}
+
+.l-ear-hole {
+	-webkit-transform-origin: 140% 50%;
+	transform-origin: 140% 50%;
+	-webkit-transform: scale(0,1) translate(33px,33px);
+	transform: scale(0,1) translate(33px,33px)
+}
+
+.r-ear-hole {
+	-webkit-transform-origin: 20% 50%;
+	transform-origin: 20% 50%;
+	-webkit-transform: scale(0,1) translate(16px,33px);
+	transform: scale(0,1) translate(16px,33px)
+}
+
+.ear-hole-mask {
+	width: 21px;
+	height: 65px;
+	background: #E4B790;
+	opacity: 0
+}
+
+.l-ear-hole-mask {
+	-webkit-transform: translate(77px,-25px);
+	transform: translate(77px,-25px)
+}
+
+.r-ear-hole-mask {
+	-webkit-transform: translate(11px,-25px);
+	transform: translate(11px,-25px)
+}
+
+.show {
+	-webkit-animation: show-animate 2s ease forwards;
+	animation: show-animate 2s ease forwards
+}
+
+.op-show {
+	opacity: 1
+}
+
+@-webkit-keyframes gooey-mor-animate {
+	25% {
+		-webkit-transform: scale(.7,1.3);
+		transform: scale(.7,1.3)
+	}
+
+	50% {
+		-webkit-transform: scale(.7,.7);
+		transform: scale(.7,.7);
+		-webkit-animation-timing-function: cubic-bezier(.64,.57,.67,1.53);
+		animation-timing-function: cubic-bezier(.64,.57,.67,1.53)
+	}
+
+	100% {
+		-webkit-transform: scale(.85,.85);
+		transform: scale(.85,.85)
+	}
+}
+
+@keyframes gooey-mor-animate {
+	25% {
+		-webkit-transform: scale(.7,1.3);
+		transform: scale(.7,1.3)
+	}
+
+	50% {
+		-webkit-transform: scale(.7,.7);
+		transform: scale(.7,.7);
+		-webkit-animation-timing-function: cubic-bezier(.64,.57,.67,1.53);
+		animation-timing-function: cubic-bezier(.64,.57,.67,1.53)
+	}
+
+	100% {
+		-webkit-transform: scale(.85,.85);
+		transform: scale(.85,.85)
+	}
+}
+
+@-webkit-keyframes gooey-mor-be-animate {
+	30% {
+		-webkit-transform: rotate(-60deg) scale(.7,1.3);
+		transform: rotate(-60deg) scale(.7,1.3)
+	}
+
+	45% {
+		-webkit-transform: rotate(-60deg) scale(.7,.7);
+		transform: rotate(-60deg) scale(.7,.7);
+		-webkit-animation-timing-function: cubic-bezier(.64,.57,.67,1.53);
+		animation-timing-function: cubic-bezier(.64,.57,.67,1.53)
+	}
+
+	100% {
+		-webkit-transform: rotate(-60deg) scale(.85,.85);
+		transform: rotate(-60deg) scale(.85,.85)
+	}
+}
+
+@keyframes gooey-mor-be-animate {
+	30% {
+		-webkit-transform: rotate(-60deg) scale(.7,1.3);
+		transform: rotate(-60deg) scale(.7,1.3)
+	}
+
+	45% {
+		-webkit-transform: rotate(-60deg) scale(.7,.7);
+		transform: rotate(-60deg) scale(.7,.7);
+		-webkit-animation-timing-function: cubic-bezier(.64,.57,.67,1.53);
+		animation-timing-function: cubic-bezier(.64,.57,.67,1.53)
+	}
+
+	100% {
+		-webkit-transform: rotate(-60deg) scale(.85,.85);
+		transform: rotate(-60deg) scale(.85,.85)
+	}
+}
+
+@-webkit-keyframes gooey-mor-af-animate {
+	30% {
+		-webkit-transform: rotate(60deg) scale(.7,1.3);
+		transform: rotate(60deg) scale(.7,1.3)
+	}
+
+	45% {
+		-webkit-transform: rotate(60deg) scale(.9,.9);
+		transform: rotate(60deg) scale(.9,.9);
+		-webkit-animation-timing-function: cubic-bezier(.64,.57,.67,1.53);
+		animation-timing-function: cubic-bezier(.64,.57,.67,1.53)
+	}
+
+	100% {
+		-webkit-transform: rotate(60deg) scale(.85,.85);
+		transform: rotate(60deg) scale(.85,.85)
+	}
+}
+
+@keyframes gooey-mor-af-animate {
+	30% {
+		-webkit-transform: rotate(60deg) scale(.7,1.3);
+		transform: rotate(60deg) scale(.7,1.3)
+	}
+
+	45% {
+		-webkit-transform: rotate(60deg) scale(.9,.9);
+		transform: rotate(60deg) scale(.9,.9);
+		-webkit-animation-timing-function: cubic-bezier(.64,.57,.67,1.53);
+		animation-timing-function: cubic-bezier(.64,.57,.67,1.53)
+	}
+
+	100% {
+		-webkit-transform: rotate(60deg) scale(.85,.85);
+		transform: rotate(60deg) scale(.85,.85)
+	}
+}
+
+@-webkit-keyframes show-animate {
+	0% {
+		-webkit-transform: matrix3d(.7,0,0,0,0,.7,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(.7,0,0,0,0,.7,0,0,0,0,1,0,0,0,0,1);
+		opacity: 0
+	}
+
+	3.4% {
+		-webkit-transform: matrix3d(.795,0,0,0,0,.822,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(.795,0,0,0,0,.822,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	4.7% {
+		-webkit-transform: matrix3d(.835,0,0,0,0,.88,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(.835,0,0,0,0,.88,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	6.81% {
+		-webkit-transform: matrix3d(.898,0,0,0,0,.968,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(.898,0,0,0,0,.968,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	9.41% {
+		-webkit-transform: matrix3d(.965,0,0,0,0,1.05,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(.965,0,0,0,0,1.05,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	10.21% {
+		-webkit-transform: matrix3d(.982,0,0,0,0,1.068,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(.982,0,0,0,0,1.068,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	13.61% {
+		-webkit-transform: matrix3d(1.037,0,0,0,0,1.1,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(1.037,0,0,0,0,1.1,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	14.11% {
+		-webkit-transform: matrix3d(1.042,0,0,0,0,1.099,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(1.042,0,0,0,0,1.099,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	17.52% {
+		-webkit-transform: matrix3d(1.062,0,0,0,0,1.072,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(1.062,0,0,0,0,1.072,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	18.72% {
+		-webkit-transform: matrix3d(1.064,0,0,0,0,1.056,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(1.064,0,0,0,0,1.056,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	21.32% {
+		-webkit-transform: matrix3d(1.059,0,0,0,0,1.021,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(1.059,0,0,0,0,1.021,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	24.32% {
+		-webkit-transform: matrix3d(1.045,0,0,0,0,.988,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(1.045,0,0,0,0,.988,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	25.23% {
+		-webkit-transform: matrix3d(1.04,0,0,0,0,.981,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(1.04,0,0,0,0,.981,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	29.03% {
+		-webkit-transform: matrix3d(1.019,0,0,0,0,.969,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(1.019,0,0,0,0,.969,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	29.93% {
+		-webkit-transform: matrix3d(1.014,0,0,0,0,.97,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(1.014,0,0,0,0,.97,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	35.54% {
+		-webkit-transform: matrix3d(.994,0,0,0,0,.989,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(.994,0,0,0,0,.989,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	36.74% {
+		-webkit-transform: matrix3d(.991,0,0,0,0,.994,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(.991,0,0,0,0,.994,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	41.04% {
+		-webkit-transform: matrix3d(.988,0,0,0,0,1.007,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(.988,0,0,0,0,1.007,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	44.44% {
+		-webkit-transform: matrix3d(.99,0,0,0,0,1.01,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(.99,0,0,0,0,1.01,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	52.15% {
+		-webkit-transform: matrix3d(.997,0,0,0,0,1.002,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(.997,0,0,0,0,1.002,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	59.86% {
+		-webkit-transform: matrix3d(1.002,0,0,0,0,.997,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(1.002,0,0,0,0,.997,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	63.26% {
+		-webkit-transform: matrix3d(1.002,0,0,0,0,.998,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(1.002,0,0,0,0,.998,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	75.28% {
+		-webkit-transform: matrix3d(1,0,0,0,0,1.001,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(1,0,0,0,0,1.001,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	100%,85.49%,90.69% {
+		-webkit-transform: matrix3d(1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	100% {
+		opacity: 1
+	}
+}
+
+@keyframes show-animate {
+	0% {
+		-webkit-transform: matrix3d(.7,0,0,0,0,.7,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(.7,0,0,0,0,.7,0,0,0,0,1,0,0,0,0,1);
+		opacity: 0
+	}
+
+	3.4% {
+		-webkit-transform: matrix3d(.795,0,0,0,0,.822,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(.795,0,0,0,0,.822,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	4.7% {
+		-webkit-transform: matrix3d(.835,0,0,0,0,.88,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(.835,0,0,0,0,.88,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	6.81% {
+		-webkit-transform: matrix3d(.898,0,0,0,0,.968,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(.898,0,0,0,0,.968,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	9.41% {
+		-webkit-transform: matrix3d(.965,0,0,0,0,1.05,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(.965,0,0,0,0,1.05,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	10.21% {
+		-webkit-transform: matrix3d(.982,0,0,0,0,1.068,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(.982,0,0,0,0,1.068,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	13.61% {
+		-webkit-transform: matrix3d(1.037,0,0,0,0,1.1,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(1.037,0,0,0,0,1.1,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	14.11% {
+		-webkit-transform: matrix3d(1.042,0,0,0,0,1.099,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(1.042,0,0,0,0,1.099,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	17.52% {
+		-webkit-transform: matrix3d(1.062,0,0,0,0,1.072,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(1.062,0,0,0,0,1.072,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	18.72% {
+		-webkit-transform: matrix3d(1.064,0,0,0,0,1.056,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(1.064,0,0,0,0,1.056,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	21.32% {
+		-webkit-transform: matrix3d(1.059,0,0,0,0,1.021,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(1.059,0,0,0,0,1.021,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	24.32% {
+		-webkit-transform: matrix3d(1.045,0,0,0,0,.988,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(1.045,0,0,0,0,.988,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	25.23% {
+		-webkit-transform: matrix3d(1.04,0,0,0,0,.981,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(1.04,0,0,0,0,.981,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	29.03% {
+		-webkit-transform: matrix3d(1.019,0,0,0,0,.969,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(1.019,0,0,0,0,.969,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	29.93% {
+		-webkit-transform: matrix3d(1.014,0,0,0,0,.97,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(1.014,0,0,0,0,.97,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	35.54% {
+		-webkit-transform: matrix3d(.994,0,0,0,0,.989,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(.994,0,0,0,0,.989,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	36.74% {
+		-webkit-transform: matrix3d(.991,0,0,0,0,.994,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(.991,0,0,0,0,.994,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	41.04% {
+		-webkit-transform: matrix3d(.988,0,0,0,0,1.007,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(.988,0,0,0,0,1.007,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	44.44% {
+		-webkit-transform: matrix3d(.99,0,0,0,0,1.01,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(.99,0,0,0,0,1.01,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	52.15% {
+		-webkit-transform: matrix3d(.997,0,0,0,0,1.002,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(.997,0,0,0,0,1.002,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	59.86% {
+		-webkit-transform: matrix3d(1.002,0,0,0,0,.997,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(1.002,0,0,0,0,.997,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	63.26% {
+		-webkit-transform: matrix3d(1.002,0,0,0,0,.998,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(1.002,0,0,0,0,.998,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	75.28% {
+		-webkit-transform: matrix3d(1,0,0,0,0,1.001,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(1,0,0,0,0,1.001,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	100%,85.49%,90.69% {
+		-webkit-transform: matrix3d(1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1);
+		transform: matrix3d(1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1)
+	}
+
+	100% {
+		opacity: 1
+	}
+}
+</style>
+<body style="transform: scale(.5);">
+    <div class="main">
+        <div class="nose">
+            <div class="nose-be"></div>
+            <div class="nose-mi"></div>
+            <div class="nose-af"></div>
+
+            <div class="l-eye-wrap">
+                <div class="eye eye-be"></div>
+                <div class="eye eye-mi"></div>
+                <div class="eye eye-af"></div>
+
+                <div class="l-eye-face"></div>
+                <div class="l-ear-wrap">
+                    <div class="ear l-ear">
+                        <div class="ear-hole l-ear-hole"></div>
+                        <div class="ear-hole-mask l-ear-hole-mask"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="r-eye-wrap">
+                <div class="eye eye-be"></div>
+                <div class="eye eye-mi"></div>
+                <div class="eye eye-af"></div>
+                <div class="r-eye-face"></div>
+                <div class="r-ear-wrap">
+                    <div class="ear r-ear">
+                        <div class="ear-hole r-ear-hole"></div>
+                        <div class="ear-hole-mask r-ear-hole-mask"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header"></div>
+        <div class="face"></div>
+    </div>
+
+    <svg xmlns="" version="1.1" width="0" height="0">
+        <defs>
+            <filter id="gooey">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="step1"/>
+                <feColorMatrix in="step1" mode="matrix" values="
+                    1 0 0 0 0
+                    0 1 0 0 0
+                    0 0 1 0 0  
+                    0 0 0 19 -9" result="step2" />
+                <feComposite in="SourceGraphic" in2="step2" operator="atop"/>
+            </filter>
+        </defs>
+    </svg>
+
+
+<!--     <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <polyline points="12,18 4,9 12,0" style="fill:none;stroke:rgb(255,255,255);stroke-width:2">
+    </svg> -->
+
+</body>
+
+<script type="text/javascript">
+console.log('%c/**\n* @author Yang\n* @date   2017-02-21\n*/', 'color: #E74C3C; font-size: 16px; font-weight: 600');
+
+var yang = function () {
+	let oNose = $('.nose');
+	let oHeader = $('.header');
+	let oFace = $('.face');
+	let oLeyeWrap = $('.l-eye-wrap');
+	let oLeyeFace = $('.l-eye-face', oLeyeWrap);
+	let oReyeWrap = $('.r-eye-wrap');
+	let oReyeFace = $('.r-eye-face', oReyeWrap);
+	let oLearWrap = $('.l-ear-wrap');
+	let oRearWrap = $('.r-ear-wrap');
+	let oLear     = $('.l-ear');
+	let oRear     = $('.r-ear');
+	let oLearHole = $('.l-ear-hole');
+	let oRearHole = $('.r-ear-hole');
+	let oMasks    = $$('.ear-hole-mask');
+	let oEyes     = $$('.eye');
+	let oEars     = $$('.ear');
+	let oEarHole  = $$('.ear-hole');
+
+	let Process = Promise.resolve();
+
+	Process.then(() => {
+		// 鼻子先显现出来
+		oNose.classList.add('show');
+		return Sleep(600); // 600ms 后进行第二步操作
+	})
+	.then(() => {
+		// 熊嘴脸显现出来
+		oFace.classList.add('show');
+		return Sleep(600); // 600ms 后进行第三步操作
+	})
+	.then(() => {
+		// 嘴脸略微变化，同时头部显现
+		oFace.classList.add('face-mor');
+		oHeader.classList.add('show');
+		return Sleep(600); // 600ms 后进行第四步操作
+	})
+	.then(() => {
+		// 鼻子动画开始动，同时两眼分别从两个方向移动
+		oNose.classList.add('nose-mor');
+		oLeyeWrap.classList.add('l-eye-wrap-mor');
+		oReyeWrap.classList.add('r-eye-wrap-mor');
+		return Sleep(300); // 300ms 后进行第五步操作
+	})
+	.then(() => {
+		// 鼻子运动为最终形态
+		oNose.classList.add('nose-end');
+		return Sleep(900); // 900ms 后进行第六步操作
+	})
+	.then(() => {
+		// 两只眼睛开始运动
+		oLeyeWrap.classList.add('eye-mor');
+		oReyeWrap.classList.add('eye-mor');
+		return Sleep(600); // 600ms 后进行第七步操作
+	})
+	.then(() => {
+		// 两只耳朵开始从眼睛中移动出来
+		oLearWrap.classList.add('l-ear-wrap-mor');
+		oRearWrap.classList.add('r-ear-wrap-mor');
+		return Sleep(1000); // 1000ms 后进行第八步操作
+	})
+	.then(() => {
+		// 两只耳朵开始形变
+		oLear.classList.add('ear-mor');
+		oRear.classList.add('ear-mor');
+		return Sleep(1800); // 1800ms 后进行第九步操作
+	})
+	.then(() => {
+		// 让耳洞部分的遮挡物显现
+		[].forEach.call(oMasks, (t) => t.classList.add('op-show'));
+		return Sleep(100); // 100ms 后进行第十步操作
+	})
+	.then(() => {
+		// 两只眼脸和耳洞同时变化
+		oLeyeFace.classList.add('show');
+		oReyeFace.classList.add('show');
+		oLearHole.classList.add('l-ear-hole-mor');
+		oRearHole.classList.add('r-ear-hole-mor');
+		return Sleep(800); // 800ms 后进行第三步操作
+	})
+	.then(() => {
+		// 运动完毕，将所有的transition 清除，保证缩放的时候不会露馅儿~
+		[].forEach.call(oEyes, (t) => {
+			t.style.transition = '0s';
+		});
+
+		[].forEach.call(oEars, (t) => {
+			t.style.transition = '0s';
+		});
+
+		[].forEach.call(oEarHole, (t) => {
+			t.style.transition = '0s';
+		})
+
+		oLeyeWrap.style.transition = '0s';
+		oReyeWrap.style.transition = '0s';
+		oFace.style.transition = '0s';
+		oLearWrap.style.transition = '0s';
+		oRearWrap.style.transition = '0s';
+	})
+}()
+
+function $(v, d) {
+	d = d || document;
+	return d.querySelector(v);
+}
+
+function $$(v, d) {
+	d = d || document;
+	return d.querySelectorAll(v);
+}
+
+function Sleep(timeout) {
+	return new Promise((resolve) => {
+		setTimeout(() => {
+			resolve();
+		}, timeout);
+	});
+}
+</script>
+</html>
