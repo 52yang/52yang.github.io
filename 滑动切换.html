@@ -52,13 +52,7 @@
 				get: r
 			})
 		}, t.n = function(e) {
-			var i = e && e.__esModule ?
-			function() {
-				return e.
-			default
-			} : function() {
-				return e
-			};
+			var i = e && e.__esModule ? function() { return e.default; } : function() { return e; }
 			return t.d(i, "a", i), i
 		}, t.o = function(e, t) {
 			return Object.prototype.hasOwnProperty.call(e, t)
@@ -274,7 +268,7 @@
 				key: "mouseupHandler",
 				value: function(e) {
 					e.stopPropagation(), 
-					this.pointerDown = !1, 
+					this.pointerDown = !1,
 					this.sliderFrame.style.cursor = "-webkit-grab", 
 					this.sliderFrame.style.webkitTransition = "all " + this.config.duration + "ms " + this.config.easing, 
 					this.sliderFrame.style.transition = "all " + this.config.duration + "ms " + this.config.easing, 
